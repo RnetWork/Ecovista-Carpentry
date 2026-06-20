@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import { Archivo_Black, Inter, JetBrains_Mono } from "next/font/google";
+import { Playfair_Display, Inter, Cinzel } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
-const archivo = Archivo_Black({
-  weight: "400",
-  variable: "--font-archivo",
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
   subsets: ["latin"],
+  weight: ["400", "600", "700", "900"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -17,9 +18,10 @@ const inter = Inter({
   display: "swap",
 });
 
-const mono = JetBrains_Mono({
-  variable: "--font-mono",
+const cinzel = Cinzel({
+  variable: "--font-cinzel",
   subsets: ["latin"],
+  weight: ["400", "600", "700"],
   display: "swap",
 });
 
@@ -29,7 +31,7 @@ export const metadata: Metadata = {
     template: "%s — Eco Vista Carpentry",
   },
   description:
-    "Eco Vista Carpentry builds precision timber frame homes, porches, and bespoke woodwork. Modern architecture. Sustainable materials. English-speaking team.",
+    "Eco Vista Carpentry builds custom timber frame homes, porches, and bespoke woodwork across Ireland. English-speaking team. Sustainable materials.",
   openGraph: {
     type: "website",
     locale: "en_IE",
@@ -43,9 +45,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${archivo.variable} ${inter.variable} ${mono.variable} h-full`}
+      className={`${playfair.variable} ${inter.variable} ${cinzel.variable} h-full`}
     >
-      <body className="min-h-full flex flex-col bg-paper text-ink antialiased">
+      <body className="min-h-full flex flex-col antialiased" style={{ background: "#FAF7F2", color: "#1C1612" }}>
         <Nav />
         <main className="flex-1">{children}</main>
         <Footer />
