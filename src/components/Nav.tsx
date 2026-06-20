@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const links = [
@@ -36,14 +37,14 @@ export default function Nav() {
     }}>
       <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: 80 }}>
 
-        <Link href="/" style={{ display: "flex", alignItems: "center", gap: 12, textDecoration: "none" }}>
-          <div style={{ width: 40, height: 40, background: "#C8863A", borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.3rem", flexShrink: 0 }}>
-            🌲
-          </div>
-          <div>
-            <div style={{ fontFamily: "var(--font-cinzel), Georgia, serif", fontSize: "1.1rem", fontWeight: 700, color: "#fff", lineHeight: 1.1 }}>EcoVista</div>
-            <div style={{ fontSize: "0.65rem", fontWeight: 400, letterSpacing: "0.12em", color: "rgba(255,255,255,0.6)", textTransform: "uppercase" }}>Carpentry</div>
-          </div>
+        <Link href="/" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
+          <Image
+            src="/logo/Ecovista_Logo_transparent.png"
+            alt="EcoVista Carpentry"
+            width={140}
+            height={56}
+            style={{ objectFit: "contain", filter: "brightness(0) invert(1)" }}
+          />
         </Link>
 
         <nav className="hidden md:flex" style={{ alignItems: "center", gap: 40 }}>

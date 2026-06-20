@@ -11,7 +11,7 @@ const services = [
   {
     num: "02", icon: "🪟", title: "Porches & Outdoor Spaces",
     desc: "Covered verandas, wrap-around porches, pergolas, and deck systems that extend your living space into the outdoors — built to withstand every season.",
-    img: "/images/finished/03-img-4632.jpg",
+    img: "/images/finished/04-img-4631.jpg",
   },
   {
     num: "03", icon: "🪚", title: "Bespoke Woodwork",
@@ -21,7 +21,7 @@ const services = [
   {
     num: "04", icon: "🏗️", title: "Extensions & Renovations",
     desc: "Adding timber extensions to existing structures or upgrading aging woodwork. We match original materials where possible and integrate seamlessly with what is already there.",
-    img: "/images/finished/14-img-4572.jpg",
+    img: "/images/finished/05-img-4635.jpg",
   },
   {
     num: "05", icon: "🌿", title: "Eco-Passive Design",
@@ -46,9 +46,9 @@ const portfolio = [
   { img: "/images/finished/09-img-4729.jpg", tag: "Timber Home — Wicklow",  title: "The Hargreaves Residence", wide: true },
   { img: "/images/finished/23-img-4728.jpg", tag: "Bespoke Interior — Cork", title: "Oakwood Library & Study",   tall: true },
   { img: "/images/finished/11-img-4573.jpg", tag: "Porch — Kerry",           title: "Lakeside Veranda" },
-  { img: "/images/finished/16-img-4721.jpg", tag: "Eco Home — Galway",       title: "Passive Timber Farmhouse" },
+  { img: "/images/finished/15-img-4944.jpg", tag: "Eco Home — Galway",       title: "Passive Timber Farmhouse" },
   { img: "/images/finished/14-img-4572.jpg", tag: "Joinery — Dublin",        title: "Heritage Staircase" },
-  { img: "/images/finished/21-img-4719.jpg", tag: "Extension — Limerick",    title: "Garden Room Addition" },
+  { img: "/images/finished/20-img-4726.jpg", tag: "Extension — Limerick",    title: "Garden Room Addition" },
 ];
 
 const reasons = [
@@ -77,20 +77,29 @@ const testimonials = [
   },
 ];
 
+/* Images used in the photo strip between services and process */
+const photoStrip = [
+  "/images/finished/01-img-4722.jpg",
+  "/images/finished/02-img-4715.jpg",
+  "/images/finished/10-img-4712.jpg",
+  "/images/finished/12-img-4629.jpg",
+  "/images/finished/17-img-4633.jpg",
+  "/images/finished/22-img-4634.jpg",
+  "/images/finished/27-img-4703.jpg",
+];
+
 export default function Home() {
   return (
     <>
-      {/* ── HERO ─────────────────────────────────────────────────── */}
+      {/* ── HERO — VIDEO ─────────────────────────────────────────── */}
       <section style={{ minHeight: "100vh", background: "#1E3A2F", display: "flex", alignItems: "center", position: "relative", overflow: "hidden" }}>
-        <Image
-          src="/images/finished/06-img-4702.jpg"
-          alt="Eco Vista timber frame home"
-          fill
-          priority
-          sizes="100vw"
-          style={{ objectFit: "cover", objectPosition: "center" }}
-        />
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(20,40,30,0.72) 0%, rgba(20,40,30,0.50) 60%, rgba(20,40,30,0.80) 100%)" }} />
+        <video
+          autoPlay muted loop playsInline
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
+        >
+          <source src="/video/v2.mp4" type="video/mp4" />
+        </video>
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(20,40,30,0.65) 0%, rgba(20,40,30,0.45) 60%, rgba(20,40,30,0.75) 100%)" }} />
         <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 120, background: "linear-gradient(to top, #FAF7F2, transparent)" }} />
         <div style={{ position: "relative", zIndex: 2, maxWidth: 1200, margin: "0 auto", padding: "0 40px", width: "100%" }}>
           <div style={{ maxWidth: 780 }}>
@@ -137,9 +146,15 @@ export default function Home() {
         <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 40px" }}>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 100, alignItems: "center" }} className="about-grid-responsive">
             <FadeUp style={{ position: "relative" } as React.CSSProperties}>
+              {/* Main portrait image */}
               <div style={{ width: "100%", aspectRatio: "4/5", borderRadius: 14, overflow: "hidden", boxShadow: "0 24px 64px rgba(28,22,18,0.20)", position: "relative" }}>
                 <Image src="/images/finished/03-img-4632.jpg" alt="EcoVista craftsmen at work" fill sizes="(min-width: 768px) 50vw, 100vw" style={{ objectFit: "cover" }} />
               </div>
+              {/* Accent image bottom-right */}
+              <div style={{ position: "absolute", bottom: -32, right: -32, width: 180, aspectRatio: "1", borderRadius: 14, overflow: "hidden", border: "6px solid #FAF7F2", boxShadow: "0 8px 32px rgba(28,22,18,0.14)" }}>
+                <Image src="/images/finished/13-img-4725.jpg" alt="Timber detail" fill sizes="180px" style={{ objectFit: "cover" }} />
+              </div>
+              {/* Amber badge */}
               <div style={{ position: "absolute", top: 32, left: -24, background: "#C8863A", color: "#fff", padding: "16px 20px", borderRadius: 14, textAlign: "center", boxShadow: "0 8px 32px rgba(28,22,18,0.14)" }}>
                 <div style={{ fontFamily: "var(--font-playfair),Georgia,serif", fontSize: "2rem", fontWeight: 700, lineHeight: 1 }}>18</div>
                 <div style={{ fontSize: "0.65rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", opacity: 0.85, marginTop: 4 }}>Years of<br />craft</div>
@@ -201,7 +216,7 @@ export default function Home() {
           </FadeUp>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 28 }} className="services-grid-responsive">
             {services.map(({ num, icon, title, desc, img }, i) => (
-              <FadeUp key={title} delay={((i % 3) + (i >= 3 ? 1 : 0)) as 0 | 1 | 2 | 3}>
+              <FadeUp key={title} delay={(i % 3) as 0 | 1 | 2 | 3}>
                 <div className="service-card">
                   <div style={{ aspectRatio: "16/10", position: "relative", overflow: "hidden" }}>
                     <Image src={img} alt={title} fill sizes="(min-width: 768px) 33vw, 100vw" style={{ objectFit: "cover" }} />
@@ -221,6 +236,15 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ── PHOTO STRIP ──────────────────────────────────────────── */}
+      <div style={{ display: "flex", height: 260, overflow: "hidden" }}>
+        {photoStrip.map((src, i) => (
+          <div key={src} style={{ flex: 1, position: "relative", minWidth: 0 }}>
+            <Image src={src} alt={`EcoVista project ${i + 1}`} fill sizes="14vw" style={{ objectFit: "cover" }} />
+          </div>
+        ))}
+      </div>
 
       {/* ── PROCESS ──────────────────────────────────────────────── */}
       <section id="process" style={{ background: "#1E3A2F", padding: "120px 0" }}>
@@ -317,7 +341,7 @@ export default function Home() {
             </div>
             <FadeUp delay={1}>
               <div style={{ position: "relative", aspectRatio: "3/4", borderRadius: 14, overflow: "hidden", boxShadow: "0 24px 64px rgba(28,22,18,0.20)" }}>
-                <Image src="/images/finished/08-img-4713.jpg" alt="EcoVista craftsmen" fill sizes="(min-width: 768px) 50vw, 100vw" style={{ objectFit: "cover" }} />
+                <Image src="/images/finished/19-img-4727.jpg" alt="EcoVista craftsmen" fill sizes="(min-width: 768px) 50vw, 100vw" style={{ objectFit: "cover" }} />
                 <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(20,40,30,0.6), transparent 50%)" }} />
                 <div style={{ position: "absolute", top: 24, right: 24, background: "#C8863A", color: "#fff", padding: "10px 18px", borderRadius: 100, fontSize: "0.78rem", fontWeight: 700, display: "flex", alignItems: "center", gap: 6 }}>
                   🇮🇪 English-Speaking Team
@@ -329,6 +353,38 @@ export default function Home() {
               </div>
             </FadeUp>
           </div>
+        </div>
+      </section>
+
+      {/* ── TIMBER INSIGHT STRIP ─────────────────────────────────── */}
+      <section style={{ background: "#1E3A2F", padding: "80px 0" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 40px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gap: 0, borderTop: "1px solid rgba(255,255,255,0.10)", borderBottom: "1px solid rgba(255,255,255,0.10)" }} className="stats-strip-responsive">
+            {[
+              { num: "0.9T",  label: "CO₂ stored",       sub: "per cubic metre of timber" },
+              { num: "1.1T",  label: "CO₂ avoided",      sub: "vs concrete or steel" },
+              { num: "30%",   label: "Lower energy bills", sub: "heating & cooling, up to" },
+              { num: "40%",   label: "Of global emissions", sub: "comes from construction" },
+            ].map(({ num, label, sub }, i) => (
+              <FadeUp key={label} delay={(i % 3) as 0 | 1 | 2 | 3}>
+                <div style={{ padding: "48px 32px", textAlign: "center", borderRight: i < 3 ? "1px solid rgba(255,255,255,0.08)" : "none" }}>
+                  <div style={{ fontFamily: "var(--font-playfair),Georgia,serif", fontSize: "2.4rem", fontWeight: 700, color: "#C8863A", lineHeight: 1, marginBottom: 8 }}>{num}</div>
+                  <div style={{ fontSize: "0.82rem", color: "rgba(255,255,255,0.80)", fontWeight: 600, marginBottom: 4, textTransform: "uppercase", letterSpacing: "0.08em" }}>{label}</div>
+                  <div style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.40)", letterSpacing: "0.06em" }}>{sub}</div>
+                </div>
+              </FadeUp>
+            ))}
+          </div>
+          <FadeUp>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 20, marginTop: 40 }}>
+              <p style={{ fontSize: "0.95rem", color: "rgba(255,255,255,0.55)", maxWidth: 560, lineHeight: 1.7 }}>
+                Construction accounts for nearly 40% of global carbon emissions. Timber is how we build against that — not with it. Every home we build actively stores CO₂ for its entire lifetime.
+              </p>
+              <Link href="/journal/why-timber-frame-homes-are-the-future" style={{ display: "inline-flex", alignItems: "center", gap: 8, fontSize: "0.85rem", fontWeight: 600, color: "#E8A558", textDecoration: "none", whiteSpace: "nowrap" }}>
+                Why timber is the future →
+              </Link>
+            </div>
+          </FadeUp>
         </div>
       </section>
 
@@ -367,9 +423,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── CTA BAND ─────────────────────────────────────────────── */}
+      {/* ── CTA BAND — reuses original hero image ────────────────── */}
       <section style={{ position: "relative", padding: "120px 0", textAlign: "center", overflow: "hidden" }}>
-        <Image src="/images/finished/23-img-4728.jpg" alt="Timber frame construction" fill sizes="100vw" style={{ objectFit: "cover" }} />
+        <Image src="/images/finished/06-img-4702.jpg" alt="Timber frame home" fill sizes="100vw" style={{ objectFit: "cover" }} />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(20,40,30,0.92), rgba(44,82,65,0.88))" }} />
         <div style={{ position: "relative", zIndex: 1, maxWidth: 1200, margin: "0 auto", padding: "0 40px" }}>
           <FadeUp>

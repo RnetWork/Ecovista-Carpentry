@@ -118,3 +118,12 @@ a { color: inherit; text-decoration: none; }
 @media (max-width: 480px) {
   .portfolio-grid-responsive { grid-template-columns: 1fr !important; }
 }
+
+@media (max-width: 768px) {
+  .stats-strip-responsive { grid-template-columns: 1fr 1fr !important; }
+  .article-grid-responsive { grid-template-columns: 1fr !important; }
+}
+
+@media (max-width: 480px) {
+  .stats-strip-responsive { grid-template-columns: 1fr !important; }
+}

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const services = ["Custom Timber Homes", "Porches & Decks", "Bespoke Joinery", "Extensions", "Eco-Passive Builds", "Design Consultancy"];
 const company  = ["About Us", "Our Process", "Portfolio", "Sustainability", "Journal"];
@@ -15,12 +16,14 @@ export default function Footer() {
         <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr", gap: 60, marginBottom: 60 }} className="footer-grid-responsive">
 
           <div>
-            <Link href="/" style={{ display: "flex", alignItems: "center", gap: 12, textDecoration: "none", marginBottom: 20 }}>
-              <div style={{ width: 40, height: 40, background: "#C8863A", borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.2rem" }}>🌲</div>
-              <div>
-                <div style={{ fontFamily: "var(--font-cinzel)", fontSize: "1.1rem", fontWeight: 700, color: "#fff" }}>EcoVista</div>
-                <div style={{ fontSize: "0.65rem", letterSpacing: "0.12em", color: "rgba(255,255,255,0.5)", textTransform: "uppercase" }}>Carpentry</div>
-              </div>
+            <Link href="/" style={{ display: "inline-block", textDecoration: "none", marginBottom: 20 }}>
+              <Image
+                src="/logo/Ecovista_Logo_transparent.png"
+                alt="EcoVista Carpentry"
+                width={160}
+                height={64}
+                style={{ objectFit: "contain", filter: "brightness(0) invert(1)" }}
+              />
             </Link>
             <p style={{ fontSize: "0.88rem", color: "rgba(255,255,255,0.45)", lineHeight: 1.7, maxWidth: 280, marginBottom: 28 }}>
               Master timber builders serving Ireland and beyond. English-speaking craftsmen, sustainable materials, 18 years of proven expertise.
