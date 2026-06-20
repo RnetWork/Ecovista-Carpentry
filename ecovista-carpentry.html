@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoVista Carpentry — Master Timber Builders</title>
+  <meta name="description" content="EcoVista Carpentry builds custom timber homes, porches, and bespoke woodwork. English-speaking craftsmen. Quality you can see, durability you can feel." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── RESET ──────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: #FAF7F2; color: #1C1612; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    /* ─── DESIGN TOKENS ──────────────────────────────────────── */
+    :root {
+      --forest:       #1E3A2F;
+      --forest-mid:   #2C5241;
+      --forest-light: #3D7A5C;
+      --amber:        #C8863A;
+      --amber-light:  #E8A558;
+      --cream:        #FAF7F2;
+      --linen:        #F0E8D8;
+      --bark:         #6B4C2A;
+      --bark-light:   #9B7045;
+      --ink:          #1C1612;
+      --ink-60:       rgba(28,22,18,0.60);
+      --ink-30:       rgba(28,22,18,0.30);
+      --white:        #FFFFFF;
+      --shadow-sm:    0 2px 12px rgba(28,22,18,0.08);
+      --shadow-md:    0 8px 32px rgba(28,22,18,0.14);
+      --shadow-lg:    0 24px 64px rgba(28,22,18,0.20);
+      --radius:       6px;
+      --radius-lg:    14px;
+    }
+
+    /* ─── TYPOGRAPHY ─────────────────────────────────────────── */
+    .t-display  { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; line-height: 1.08; letter-spacing: -0.02em; }
+    .t-heading  { font-family: 'Playfair Display', Georgia, serif; font-weight: 600; line-height: 1.2; }
+    .t-label    { font-family: 'Cinzel', Georgia, serif; font-weight: 600; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; }
+    .t-body     { font-weight: 400; line-height: 1.72; color: var(--ink-60); }
+    .t-lead     { font-size: 1.125rem; font-weight: 300; line-height: 1.7; color: var(--ink-60); }
+
+    /* ─── UTILITY ────────────────────────────────────────────── */
+    .container  { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+    .section    { padding: 120px 0; }
+    .section-sm { padding: 80px 0; }
+    .divider    { width: 56px; height: 3px; background: var(--amber); border-radius: 2px; margin: 24px auto; }
+    .divider-left { margin-left: 0; }
+    .tag        { display: inline-block; padding: 6px 16px; border: 1px solid var(--amber); color: var(--amber); border-radius: 100px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+
+    /* ─── BUTTONS ────────────────────────────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 16px 36px; border-radius: var(--radius);
+      font-size: 0.9rem; font-weight: 600; letter-spacing: 0.04em;
+      cursor: pointer; transition: all 0.25s ease; border: none;
+    }
+    .btn-primary {
+      background: var(--amber); color: var(--white);
+      box-shadow: 0 4px 20px rgba(200,134,58,0.35);
+    }
+    .btn-primary:hover { background: var(--amber-light); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(200,134,58,0.45); }
+    .btn-outline {
+      background: transparent; color: var(--white);
+      border: 1.5px solid rgba(255,255,255,0.55);
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.10); border-color: var(--white); }
+    .btn-dark {
+      background: var(--forest); color: var(--white);
+    }
+    .btn-dark:hover { background: var(--forest-mid); transform: translateY(-2px); }
+
+    /* ─── NAV ────────────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 0 40px;
+      transition: background 0.35s ease, box-shadow 0.35s ease;
+    }
+    nav.scrolled {
+      background: rgba(30,58,47,0.97);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 24px rgba(28,22,18,0.2);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 80px;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .nav-logo-icon {
+      width: 40px; height: 40px;
+      background: var(--amber);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+    }
+    .nav-logo-text { font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 700; color: var(--white); line-height: 1.1; }
+    .nav-logo-sub  { font-size: 0.65rem; font-weight: 400; letter-spacing: 0.12em; color: rgba(255,255,255,0.6); text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 40px; }
+    .nav-links a { color: rgba(255,255,255,0.80); font-size: 0.88rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--amber-light); }
+    .nav-cta { background: var(--amber); color: var(--white); padding: 10px 24px; border-radius: var(--radius); font-size: 0.85rem; font-weight: 600; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--amber-light); color: var(--white); transform: translateY(-1px); }
+
+    /* ─── HERO ───────────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      background: var(--forest);
+      display: flex; align-items: center;
+      position: relative; overflow: hidden;
+    }
+    .hero-video {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+      z-index: 0;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(to bottom, rgba(20,40,30,0.72) 0%, rgba(20,40,30,0.50) 60%, rgba(20,40,30,0.80) 100%);
+    }
+    .hero::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 120px;
+      background: linear-gradient(to top, var(--cream), transparent);
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      max-width: 780px;
+    }
+    .hero-tag { color: var(--amber-light); margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
+    .hero-tag::before { content: ''; display: inline-block; width: 40px; height: 2px; background: var(--amber); }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 900; line-height: 1.02; letter-spacing: -0.03em; color: var(--white); margin-bottom: 28px; }
+    .hero h1 em { font-style: italic; color: var(--amber-light); }
+    .hero p { font-size: 1.2rem; font-weight: 300; line-height: 1.7; color: rgba(255,255,255,0.80); max-width: 560px; margin-bottom: 48px; }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+    .hero-scroll {
+      position: absolute; bottom: 140px; right: 60px; z-index: 2;
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      color: rgba(255,255,255,0.50); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+    }
+    .hero-scroll-line { width: 1px; height: 60px; background: rgba(255,255,255,0.30); animation: scrollLine 2s ease-in-out infinite; }
+    @keyframes scrollLine { 0%,100% { transform: scaleY(1); opacity: 0.4; } 50% { transform: scaleY(0.4); opacity: 1; } }
+
+    /* ─── STATS BAR ──────────────────────────────────────────── */
+    .stats-bar {
+      background: var(--forest);
+      padding: 0;
+    }
+    .stats-inner {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      max-width: 1200px; margin: 0 auto;
+    }
+    .stat {
+      padding: 40px 32px;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.08);
+      transition: background 0.2s;
+    }
+    .stat:last-child { border-right: none; }
+    .stat:hover { background: rgba(255,255,255,0.04); }
+    .stat-num { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 700; color: var(--amber); line-height: 1; margin-bottom: 8px; }
+    .stat-label { font-size: 0.78rem; color: rgba(255,255,255,0.55); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
+
+    /* ─── ABOUT ──────────────────────────────────────────────── */
+    .about { background: var(--cream); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
+    .about-media { position: relative; }
+    .about-img-main {
+      width: 100%; aspect-ratio: 4/5; border-radius: var(--radius-lg);
+      background: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80') center/cover;
+      box-shadow: var(--shadow-lg);
+    }
+    .about-img-accent {
+      position: absolute; bottom: -32px; right: -32px;
+      width: 220px; aspect-ratio: 1;
+      border-radius: var(--radius-lg);
+      background: url('https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=400&q=80') center/cover;
+      border: 6px solid var(--cream);
+      box-shadow: var(--shadow-md);
+    }
+    .about-badge {
+      position: absolute; top: 32px; left: -24px;
+      background: var(--amber); color: var(--white);
+      padding: 16px 20px; border-radius: var(--radius-lg);
+      text-align: center; box-shadow: var(--shadow-md);
+    }
+    .about-badge-num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; line-height: 1; }
+    .about-badge-text { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.85; margin-top: 4px; }
+    .about-text {}
+    .about-text .t-label { color: var(--amber); margin-bottom: 12px; }
+    .about-text h2 { font-size: clamp(2rem, 3.5vw, 2.8rem); margin-bottom: 20px; color: var(--ink); }
+    .about-text p { margin-bottom: 20px; }
+    .about-values { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 36px; }
+    .about-value { display: flex; align-items: flex-start; gap: 12px; }
+    .about-value-icon { width: 44px; height: 44px; border-radius: 10px; background: var(--linen); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+    .about-value-title { font-weight: 600; font-size: 0.9rem; margin-bottom: 4px; }
+    .about-value-desc { font-size: 0.82rem; color: var(--ink-60); line-height: 1.5; }
+
+    /* ─── SERVICES ───────────────────────────────────────────── */
+    .services { background: var(--linen); }
+    .section-header { text-align: center; max-width: 620px; margin: 0 auto 72px; }
+    .section-header .t-label { color: var(--amber); margin-bottom: 12px; }
+    .section-header h2 { font-size: clamp(2rem, 3.5vw, 2.8rem); color: var(--ink); margin-bottom: 16px; }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .service-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .service-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-md); }
+    .service-img {
+      aspect-ratio: 16/10;
+      background-size: cover; background-position: center;
+      position: relative; overflow: hidden;
+    }
+    .service-img::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(20,40,30,0.7), transparent 60%);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .service-card:hover .service-img::after { opacity: 1; }
+    .service-num {
+      position: absolute; top: 16px; left: 16px;
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--amber); color: var(--white);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.05em;
+      z-index: 1;
+    }
+    .service-body { padding: 28px; }
+    .service-icon { font-size: 1.8rem; margin-bottom: 12px; }
+    .service-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 600; color: var(--ink); margin-bottom: 10px; }
+    .service-desc { font-size: 0.88rem; color: var(--ink-60); line-height: 1.65; margin-bottom: 20px; }
+    .service-link { display: flex; align-items: center; gap: 8px; font-size: 0.82rem; font-weight: 600; color: var(--forest-light); transition: gap 0.2s; }
+    .service-card:hover .service-link { gap: 14px; }
+    .service-link::after { content: '→'; }
+
+    /* ─── PROCESS ────────────────────────────────────────────── */
+    .process { background: var(--forest); padding: 120px 0; }
+    .process .section-header h2 { color: var(--white); }
+    .process .section-header p { color: rgba(255,255,255,0.60); }
+    .process .t-label { color: var(--amber-light); }
+    .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-top: 72px; }
+    .process-step {
+      padding: 48px 32px;
+      background: rgba(255,255,255,0.04);
+      position: relative;
+      transition: background 0.3s;
+    }
+    .process-step:hover { background: rgba(255,255,255,0.08); }
+    .process-step::after {
+      content: '→';
+      position: absolute; top: 52px; right: -12px;
+      color: var(--amber); font-size: 1.2rem; z-index: 1;
+    }
+    .process-step:last-child::after { display: none; }
+    .process-step-num { font-family: 'Cinzel', serif; font-size: 0.7rem; color: var(--amber); letter-spacing: 0.2em; margin-bottom: 24px; }
+    .process-step-icon { font-size: 2.4rem; margin-bottom: 20px; }
+    .process-step-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--white); margin-bottom: 12px; }
+    .process-step-desc { font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.65; }
+
+    /* ─── PORTFOLIO ──────────────────────────────────────────── */
+    .portfolio { background: var(--cream); }
+    .portfolio-filter { display: flex; gap: 8px; justify-content: center; margin-bottom: 52px; flex-wrap: wrap; }
+    .filter-btn {
+      padding: 9px 22px; border-radius: 100px;
+      font-size: 0.82rem; font-weight: 500;
+      border: 1.5px solid var(--ink-30); color: var(--ink-60);
+      background: transparent; cursor: pointer; transition: all 0.2s;
+    }
+    .filter-btn.active, .filter-btn:hover { background: var(--forest); color: var(--white); border-color: var(--forest); }
+    .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 280px; gap: 16px; }
+    .portfolio-item {
+      border-radius: var(--radius-lg); overflow: hidden;
+      background-size: cover; background-position: center;
+      position: relative; cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .portfolio-item:hover { transform: scale(1.02); }
+    .portfolio-item.wide { grid-column: span 2; }
+    .portfolio-item.tall { grid-row: span 2; }
+    .portfolio-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(20,40,30,0.85) 0%, transparent 60%);
+      opacity: 0; transition: opacity 0.3s;
+      display: flex; align-items: flex-end; padding: 28px;
+    }
+    .portfolio-item:hover .portfolio-overlay { opacity: 1; }
+    .portfolio-info-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--white); font-weight: 600; }
+    .portfolio-info-tag { font-size: 0.75rem; color: var(--amber-light); margin-bottom: 6px; font-weight: 500; }
+
+    /* ─── WHY US ──────────────────────────────────────────────── */
+    .why { background: var(--linen); }
+    .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .why-text .t-label { color: var(--amber); margin-bottom: 12px; }
+    .why-text h2 { font-size: clamp(2rem, 3.5vw, 2.8rem); color: var(--ink); margin-bottom: 16px; }
+    .why-text p { margin-bottom: 32px; }
+    .why-reasons { display: flex; flex-direction: column; gap: 20px; }
+    .why-reason { display: flex; gap: 20px; align-items: flex-start; padding: 24px; background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); transition: box-shadow 0.2s; }
+    .why-reason:hover { box-shadow: var(--shadow-md); }
+    .why-reason-icon { width: 52px; height: 52px; border-radius: 12px; background: var(--forest); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; }
+    .why-reason-title { font-weight: 600; font-size: 1rem; margin-bottom: 6px; }
+    .why-reason-desc { font-size: 0.85rem; color: var(--ink-60); line-height: 1.6; }
+    .why-visual {
+      position: relative;
+      background: url('https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=800&q=80') center/cover;
+      aspect-ratio: 3/4; border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg); overflow: hidden;
+    }
+    .why-visual::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(20,40,30,0.6), transparent 50%); }
+    .why-visual-tag {
+      position: absolute; bottom: 32px; left: 32px; right: 32px; z-index: 1;
+      background: rgba(255,255,255,0.12); backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.20);
+      border-radius: var(--radius-lg); padding: 20px;
+    }
+    .why-visual-tag-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--white); margin-bottom: 6px; }
+    .why-visual-tag-sub { font-size: 0.8rem; color: rgba(255,255,255,0.65); }
+    .english-badge {
+      position: absolute; top: 24px; right: 24px; z-index: 1;
+      background: var(--amber); color: var(--white);
+      padding: 10px 18px; border-radius: 100px;
+      font-size: 0.78rem; font-weight: 700;
+      display: flex; align-items: center; gap: 6px;
+    }
+
+    /* ─── TESTIMONIALS ───────────────────────────────────────── */
+    .testimonials { background: var(--cream); }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .testimonial-card { background: var(--white); border-radius: var(--radius-lg); padding: 40px 36px; box-shadow: var(--shadow-sm); position: relative; transition: box-shadow 0.3s; }
+    .testimonial-card:hover { box-shadow: var(--shadow-md); }
+    .testimonial-card.featured { background: var(--forest); }
+    .testimonial-quote { font-size: 3rem; line-height: 1; color: var(--amber); font-family: 'Playfair Display', serif; margin-bottom: 20px; }
+    .testimonial-card.featured .testimonial-quote { color: var(--amber-light); }
+    .testimonial-text { font-size: 0.95rem; line-height: 1.75; color: var(--ink-60); margin-bottom: 28px; font-style: italic; }
+    .testimonial-card.featured .testimonial-text { color: rgba(255,255,255,0.75); }
+    .testimonial-author { display: flex; align-items: center; gap: 14px; }
+    .testimonial-avatar { width: 48px; height: 48px; border-radius: 50%; background-size: cover; background-position: center; flex-shrink: 0; }
+    .testimonial-name { font-weight: 600; font-size: 0.9rem; }
+    .testimonial-card.featured .testimonial-name { color: var(--white); }
+    .testimonial-role { font-size: 0.78rem; color: var(--ink-60); }
+    .testimonial-card.featured .testimonial-role { color: rgba(255,255,255,0.50); }
+    .testimonial-stars { display: flex; gap: 3px; margin-bottom: 8px; }
+    .star { color: var(--amber); font-size: 0.85rem; }
+
+    /* ─── CTA BAND ───────────────────────────────────────────── */
+    .cta-band {
+      background:
+        linear-gradient(135deg, rgba(20,40,30,0.92), rgba(44,82,65,0.88)),
+        url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=80') center/cover;
+      padding: 120px 0; text-align: center;
+    }
+    .cta-band h2 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 4vw, 3.2rem); color: var(--white); margin-bottom: 20px; }
+    .cta-band p { font-size: 1.1rem; color: rgba(255,255,255,0.70); max-width: 540px; margin: 0 auto 48px; line-height: 1.7; }
+    .cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* ─── CONTACT ────────────────────────────────────────────── */
+    .contact { background: var(--linen); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; }
+    .contact-info .t-label { color: var(--amber); margin-bottom: 12px; }
+    .contact-info h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); margin-bottom: 16px; }
+    .contact-info p { margin-bottom: 40px; }
+    .contact-details { display: flex; flex-direction: column; gap: 24px; }
+    .contact-detail { display: flex; align-items: flex-start; gap: 16px; }
+    .contact-detail-icon { width: 48px; height: 48px; border-radius: 12px; background: var(--forest); color: var(--white); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+    .contact-detail-label { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--amber); margin-bottom: 4px; }
+    .contact-detail-value { font-weight: 500; }
+    .contact-form { background: var(--white); border-radius: var(--radius-lg); padding: 48px; box-shadow: var(--shadow-md); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+    .form-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+    .form-group label { font-size: 0.82rem; font-weight: 600; color: var(--ink); letter-spacing: 0.04em; }
+    .form-group input, .form-group select, .form-group textarea {
+      padding: 14px 16px; border-radius: var(--radius);
+      border: 1.5px solid var(--ink-30); font-size: 0.9rem;
+      font-family: inherit; color: var(--ink); background: var(--cream);
+      transition: border-color 0.2s, box-shadow 0.2s; outline: none;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color: var(--forest-light); box-shadow: 0 0 0 3px rgba(61,122,92,0.12);
+    }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-submit { width: 100%; padding: 16px; background: var(--forest); color: var(--white); border: none; border-radius: var(--radius); font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: all 0.25s; letter-spacing: 0.04em; }
+    .form-submit:hover { background: var(--forest-mid); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+
+    /* ─── FOOTER ─────────────────────────────────────────────── */
+    footer { background: #111A15; padding: 80px 0 40px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+    .footer-brand p { font-size: 0.88rem; color: rgba(255,255,255,0.45); line-height: 1.7; margin: 20px 0 28px; max-width: 280px; }
+    .footer-socials { display: flex; gap: 10px; }
+    .footer-social { width: 38px; height: 38px; border-radius: 8px; background: rgba(255,255,255,0.07); display: flex; align-items: center; justify-content: center; font-size: 1rem; transition: background 0.2s; cursor: pointer; }
+    .footer-social:hover { background: var(--amber); }
+    .footer-col-title { font-family: 'Cinzel', serif; font-size: 0.72rem; color: rgba(255,255,255,0.35); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 24px; }
+    .footer-col ul li { margin-bottom: 12px; }
+    .footer-col ul li a { font-size: 0.88rem; color: rgba(255,255,255,0.55); transition: color 0.2s; }
+    .footer-col ul li a:hover { color: var(--amber-light); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 32px; display: flex; justify-content: space-between; align-items: center; }
+    .footer-copy { font-size: 0.8rem; color: rgba(255,255,255,0.30); }
+    .footer-legal { display: flex; gap: 28px; }
+    .footer-legal a { font-size: 0.8rem; color: rgba(255,255,255,0.30); transition: color 0.2s; }
+    .footer-legal a:hover { color: rgba(255,255,255,0.60); }
+
+    /* ─── SCROLL ANIMATIONS ──────────────────────────────────── */
+    .fade-up { opacity: 0; transform: translateY(32px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .fade-up-delay-1 { transition-delay: 0.1s; }
+    .fade-up-delay-2 { transition-delay: 0.2s; }
+    .fade-up-delay-3 { transition-delay: 0.3s; }
+    .fade-up-delay-4 { transition-delay: 0.4s; }
+
+    /* ─── RESPONSIVE ──────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .container { padding: 0 28px; }
+      .about-grid, .why-grid, .contact-grid { grid-template-columns: 1fr; gap: 56px; }
+      .services-grid, .testimonials-grid { grid-template-columns: 1fr 1fr; }
+      .process-steps { grid-template-columns: 1fr 1fr; gap: 2px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .stats-inner { grid-template-columns: 1fr 1fr; }
+      .stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+      .about-img-accent { display: none; }
+      .about-badge { left: 16px; }
+    }
+    @media (max-width: 768px) {
+      .section { padding: 80px 0; }
+      .nav-links { display: none; }
+      .services-grid, .testimonials-grid { grid-template-columns: 1fr; }
+      .portfolio-grid { grid-template-columns: 1fr 1fr; }
+      .portfolio-item.wide { grid-column: span 1; }
+      .process-steps { grid-template-columns: 1fr; }
+      .process-step::after { display: none; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+      .hero-scroll { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAV ─────────────────────────────────────────────────── -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <div class="nav-logo-icon">🌲</div>
+        <div>
+          <div class="nav-logo-text">EcoVista</div>
+          <div class="nav-logo-sub">Carpentry</div>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#why">Why Us</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a href="#contact" class="nav-cta">Get a Quote</a>
+    </div>
+  </nav>
+
+  <!-- ─── HERO ─────────────────────────────────────────────────── -->
+  <section class="hero" id="home">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="v2.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-tag t-label">Master Timber Builders</div>
+        <h1 class="t-display">
+          Built from<br><em>nature.</em><br>Built to last.
+        </h1>
+        <p>From custom timber-frame homes to open-air porches and bespoke woodwork — we craft spaces that honour the material and stand for generations. And we do it all in <strong style="color:#E8A558">your language.</strong></p>
+        <div class="hero-actions">
+          <a href="#portfolio" class="btn btn-primary">View Our Work</a>
+          <a href="#contact" class="btn btn-outline">Free Consultation</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="hero-scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ─── STATS BAR ─────────────────────────────────────────────── -->
+  <div class="stats-bar">
+    <div class="stats-inner">
+      <div class="stat fade-up">
+        <div class="stat-num">18+</div>
+        <div class="stat-label">Years in Business</div>
+      </div>
+      <div class="stat fade-up fade-up-delay-1">
+        <div class="stat-num">340</div>
+        <div class="stat-label">Homes Delivered</div>
+      </div>
+      <div class="stat fade-up fade-up-delay-2">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Sustainable Timber</div>
+      </div>
+      <div class="stat fade-up fade-up-delay-3">
+        <div class="stat-num">4.9★</div>
+        <div class="stat-label">Client Satisfaction</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── ABOUT ─────────────────────────────────────────────────── -->
+  <section class="section about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-media fade-up">
+          <div class="about-img-main"></div>
+          <div class="about-img-accent"></div>
+          <div class="about-badge">
+            <div class="about-badge-num">18</div>
+            <div class="about-badge-text">Years of<br>craft</div>
+          </div>
+        </div>
+        <div class="about-text">
+          <p class="t-label" style="color:var(--amber)">Who We Are</p>
+          <h2 class="t-heading fade-up">Craftsmen who speak your language — literally.</h2>
+          <div class="divider divider-left"></div>
+          <p class="t-lead fade-up">EcoVista Carpentry was founded on a simple belief: great timber work deserves great communication. Too many clients have been left confused by language barriers on their own building sites. Not here.</p>
+          <p class="t-body fade-up">Every member of our team is fully English-speaking, so from your first consultation to the final nail, you always know exactly what is happening with your project. Combine that with 18 years of mastery in timber-frame construction, and you get a partner who is as clear in conversation as they are skilled with wood.</p>
+          <div class="about-values fade-up">
+            <div class="about-value">
+              <div class="about-value-icon">🌲</div>
+              <div>
+                <div class="about-value-title">Sustainable Sourcing</div>
+                <div class="about-value-desc">Only FSC-certified, responsibly harvested timber.</div>
+              </div>
+            </div>
+            <div class="about-value">
+              <div class="about-value-icon">💬</div>
+              <div>
+                <div class="about-value-title">English-Speaking Team</div>
+                <div class="about-value-desc">No interpreters needed — ever.</div>
+              </div>
+            </div>
+            <div class="about-value">
+              <div class="about-value-icon">🏗️</div>
+              <div>
+                <div class="about-value-title">Full-Build Capability</div>
+                <div class="about-value-desc">Design through handover, under one roof.</div>
+              </div>
+            </div>
+            <div class="about-value">
+              <div class="about-value-icon">🛡️</div>
+              <div>
+                <div class="about-value-title">10-Year Warranty</div>
+                <div class="about-value-desc">Structural guarantee on every project.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SERVICES ──────────────────────────────────────────────── -->
+  <section class="section services" id="services">
+    <div class="container">
+      <div class="section-header fade-up">
+        <p class="t-label">What We Build</p>
+        <h2 class="t-heading">Every project. Every scale.</h2>
+        <div class="divider"></div>
+        <p class="t-body">Whether you are commissioning your dream timber-frame home or adding a handcrafted porch to an existing property, our expertise covers the full spectrum of natural wood construction.</p>
+      </div>
+      <div class="services-grid">
+
+        <div class="service-card fade-up">
+          <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80');">
+            <div class="service-num">01</div>
+          </div>
+          <div class="service-body">
+            <div class="service-icon">🏡</div>
+            <div class="service-title">Custom Timber Homes</div>
+            <p class="service-desc">Full design-and-build service for timber-frame residences. We handle everything from structural engineering and planning permission to interior detailing and landscaping tie-in.</p>
+            <div class="service-link">Learn more</div>
+          </div>
+        </div>
+
+        <div class="service-card fade-up fade-up-delay-1">
+          <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&q=80');">
+            <div class="service-num">02</div>
+          </div>
+          <div class="service-body">
+            <div class="service-icon">🪟</div>
+            <div class="service-title">Porches & Outdoor Spaces</div>
+            <p class="service-desc">Covered verandas, wrap-around porches, pergolas, and deck systems that extend your living space into the outdoors — built to withstand every season.</p>
+            <div class="service-link">Learn more</div>
+          </div>
+        </div>
+
+        <div class="service-card fade-up fade-up-delay-2">
+          <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=600&q=80');">
+            <div class="service-num">03</div>
+          </div>
+          <div class="service-body">
+            <div class="service-icon">🪚</div>
+            <div class="service-title">Bespoke Woodwork</div>
+            <p class="service-desc">Custom cabinetry, staircase systems, structural beams, cladding, and interior joinery — handcrafted to your specification with natural wood species of your choice.</p>
+            <div class="service-link">Learn more</div>
+          </div>
+        </div>
+
+        <div class="service-card fade-up fade-up-delay-1">
+          <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=600&q=80');">
+            <div class="service-num">04</div>
+          </div>
+          <div class="service-body">
+            <div class="service-icon">🏗️</div>
+            <div class="service-title">Extensions & Renovations</div>
+            <p class="service-desc">Adding timber extensions to existing structures or upgrading aging woodwork. We match original materials where possible and integrate seamlessly with what is already there.</p>
+            <div class="service-link">Learn more</div>
+          </div>
+        </div>
+
+        <div class="service-card fade-up fade-up-delay-2">
+          <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80');">
+            <div class="service-num">05</div>
+          </div>
+          <div class="service-body">
+            <div class="service-icon">🌿</div>
+            <div class="service-title">Eco-Passive Design</div>
+            <p class="service-desc">Passive-house compatible timber-frame builds with superior insulation, natural vapour control, and minimal environmental footprint — comfortable year-round without energy waste.</p>
+            <div class="service-link">Learn more</div>
+          </div>
+        </div>
+
+        <div class="service-card fade-up fade-up-delay-3">
+          <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=600&q=80');">
+            <div class="service-num">06</div>
+          </div>
+          <div class="service-body">
+            <div class="service-icon">📐</div>
+            <div class="service-title">Design Consultancy</div>
+            <p class="service-desc">Not ready to build yet? Our timber design consultants will help you plan, specify, and budget your project so you can make confident decisions before ground is broken.</p>
+            <div class="service-link">Learn more</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PROCESS ───────────────────────────────────────────────── -->
+  <section class="process" id="process">
+    <div class="container">
+      <div class="section-header fade-up">
+        <p class="t-label">How It Works</p>
+        <h2 class="t-heading">Simple. Clear. Yours.</h2>
+        <div class="divider"></div>
+        <p>From first call to final handover — a process you can follow every step of the way.</p>
+      </div>
+      <div class="process-steps">
+        <div class="process-step fade-up">
+          <div class="process-step-num">Step 01</div>
+          <div class="process-step-icon">☕</div>
+          <div class="process-step-title">Free Consultation</div>
+          <p class="process-step-desc">We meet (in person or online) to understand your vision, site constraints, and budget. No jargon, no pressure — just a genuine conversation.</p>
+        </div>
+        <div class="process-step fade-up fade-up-delay-1">
+          <div class="process-step-num">Step 02</div>
+          <div class="process-step-icon">📐</div>
+          <div class="process-step-title">Design & Proposal</div>
+          <p class="process-step-desc">Our team produces detailed drawings and a transparent, itemised quote. You see exactly what you are paying for — before anything is signed.</p>
+        </div>
+        <div class="process-step fade-up fade-up-delay-2">
+          <div class="process-step-num">Step 03</div>
+          <div class="process-step-icon">🪵</div>
+          <div class="process-step-title">Build & Updates</div>
+          <p class="process-step-desc">Construction begins. You receive regular English-language progress updates, photos, and site visits whenever you want them. No surprises.</p>
+        </div>
+        <div class="process-step fade-up fade-up-delay-3">
+          <div class="process-step-num">Step 04</div>
+          <div class="process-step-icon">🔑</div>
+          <div class="process-step-title">Handover & Aftercare</div>
+          <p class="process-step-desc">We walk you through your completed project, explain every detail, and leave you with full documentation plus our 10-year structural warranty.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PORTFOLIO ─────────────────────────────────────────────── -->
+  <section class="section portfolio" id="portfolio">
+    <div class="container">
+      <div class="section-header fade-up">
+        <p class="t-label">Our Work</p>
+        <h2 class="t-heading">Projects we are proud of</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="portfolio-filter fade-up">
+        <button class="filter-btn active">All Projects</button>
+        <button class="filter-btn">Timber Homes</button>
+        <button class="filter-btn">Porches</button>
+        <button class="filter-btn">Interiors</button>
+        <button class="filter-btn">Extensions</button>
+      </div>
+      <div class="portfolio-grid">
+        <div class="portfolio-item wide" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80')">
+          <div class="portfolio-overlay">
+            <div>
+              <div class="portfolio-info-tag">Timber Home — Wicklow</div>
+              <div class="portfolio-info-title">The Hargreaves Residence</div>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-item tall" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80')">
+          <div class="portfolio-overlay">
+            <div>
+              <div class="portfolio-info-tag">Bespoke Interior — Cork</div>
+              <div class="portfolio-info-title">Oakwood Library & Study</div>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-item" style="background-image: url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&q=80')">
+          <div class="portfolio-overlay">
+            <div>
+              <div class="portfolio-info-tag">Porch — Kerry</div>
+              <div class="portfolio-info-title">Lakeside Veranda</div>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-item" style="background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80')">
+          <div class="portfolio-overlay">
+            <div>
+              <div class="portfolio-info-tag">Eco Home — Galway</div>
+              <div class="portfolio-info-title">Passive Timber Farmhouse</div>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-item" style="background-image: url('https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=600&q=80')">
+          <div class="portfolio-overlay">
+            <div>
+              <div class="portfolio-info-tag">Joinery — Dublin</div>
+              <div class="portfolio-info-title">Heritage Staircase</div>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-item" style="background-image: url('https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=600&q=80')">
+          <div class="portfolio-overlay">
+            <div>
+              <div class="portfolio-info-tag">Extension — Limerick</div>
+              <div class="portfolio-info-title">Garden Room Addition</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── WHY US ────────────────────────────────────────────────── -->
+  <section class="section why" id="why">
+    <div class="container">
+      <div class="why-grid">
+        <div class="why-text">
+          <p class="t-label" style="color:var(--amber)">Why EcoVista</p>
+          <h2 class="t-heading fade-up">We speak your language.<br>We build your vision.</h2>
+          <div class="divider divider-left"></div>
+          <p class="t-lead fade-up">Finding skilled timber craftsmen is hard enough. Finding ones you can actually talk to clearly — without awkward back-and-forth through a middleman — is rarer still.</p>
+          <div class="why-reasons">
+            <div class="why-reason fade-up">
+              <div class="why-reason-icon">💬</div>
+              <div>
+                <div class="why-reason-title">Fully English-Speaking Crews</div>
+                <p class="why-reason-desc">Every tradesperson on your site communicates in English — no translation apps, no misunderstandings, no costly mistakes from unclear instructions.</p>
+              </div>
+            </div>
+            <div class="why-reason fade-up fade-up-delay-1">
+              <div class="why-reason-icon">🌲</div>
+              <div>
+                <div class="why-reason-title">100% Sustainable Timber</div>
+                <p class="why-reason-desc">All our wood is FSC-certified and sourced from responsibly managed forests. Your home is carbon-smart from day one.</p>
+              </div>
+            </div>
+            <div class="why-reason fade-up fade-up-delay-2">
+              <div class="why-reason-icon">📋</div>
+              <div>
+                <div class="why-reason-title">Fixed-Price Transparency</div>
+                <p class="why-reason-desc">We quote clearly and stick to it. No hidden extras, no surprise invoices. If scope changes, we discuss it openly before proceeding.</p>
+              </div>
+            </div>
+            <div class="why-reason fade-up fade-up-delay-3">
+              <div class="why-reason-icon">🛡️</div>
+              <div>
+                <div class="why-reason-title">10-Year Structural Warranty</div>
+                <p class="why-reason-desc">Our confidence in our craft is written into every contract. Your investment is protected long after we hand over the keys.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="why-visual fade-up">
+          <div class="english-badge">🇬🇧 100% English-Speaking</div>
+          <div class="why-visual-tag">
+            <div class="why-visual-tag-title">"Finally, a builder I can actually talk to."</div>
+            <div class="why-visual-tag-sub">— James R., homeowner, Co. Wicklow</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TESTIMONIALS ──────────────────────────────────────────── -->
+  <section class="section testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-header fade-up">
+        <p class="t-label">Client Stories</p>
+        <h2 class="t-heading">Heard from the people who live in our work</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="testimonials-grid">
+
+        <div class="testimonial-card fade-up">
+          <div class="testimonial-stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          </div>
+          <div class="testimonial-quote">"</div>
+          <p class="testimonial-text">We had tried two other builders before EcoVista. The difference was night and day — every question answered clearly in English, every decision explained. The house is stunning.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=96&q=80')"></div>
+            <div>
+              <div class="testimonial-name">James Hargreaves</div>
+              <div class="testimonial-role">Homeowner — Co. Wicklow</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card featured fade-up fade-up-delay-1">
+          <div class="testimonial-stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          </div>
+          <div class="testimonial-quote">"</div>
+          <p class="testimonial-text">The porch they built is exactly what I described in our very first meeting. I never had to repeat myself or guess what they understood. The craftsmanship is extraordinary — it's become our favourite part of the house.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background-image: url('https://images.unsplash.com/photo-1494790108755-2616b612b601?w=96&q=80')"></div>
+            <div>
+              <div class="testimonial-name">Sarah O'Brien</div>
+              <div class="testimonial-role">Homeowner — Co. Kerry</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card fade-up fade-up-delay-2">
+          <div class="testimonial-stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          </div>
+          <div class="testimonial-quote">"</div>
+          <p class="testimonial-text">As an expat building our family home, clear communication was non-negotiable. EcoVista delivered — on language, on quality, on time. I cannot recommend them enough.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background-image: url('https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=96&q=80')"></div>
+            <div>
+              <div class="testimonial-name">Mark & Linda Fowler</div>
+              <div class="testimonial-role">Homeowners — Co. Galway</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA BAND ───────────────────────────────────────────────── -->
+  <div class="cta-band">
+    <div class="container">
+      <h2 class="fade-up">Ready to build something<br><em style="font-style:italic; color:var(--amber-light)">that lasts?</em></h2>
+      <p class="fade-up">Let's start with a conversation. No commitment, no pressure — just clarity on what's possible for your project.</p>
+      <div class="cta-actions fade-up">
+        <a href="#contact" class="btn btn-primary">Get a Free Quote</a>
+        <a href="tel:+35312345678" class="btn btn-outline">📞 Call Us Directly</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── CONTACT ────────────────────────────────────────────────── -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p class="t-label" style="color:var(--amber)">Get In Touch</p>
+          <h2 class="t-heading fade-up">Let's talk about your project</h2>
+          <div class="divider divider-left"></div>
+          <p class="t-lead fade-up">Whether you have detailed plans or just an idea scribbled on a napkin — we want to hear from you. All enquiries are answered in English within one business day.</p>
+          <div class="contact-details fade-up">
+            <div class="contact-detail">
+              <div class="contact-detail-icon">📍</div>
+              <div>
+                <div class="contact-detail-label">Studio Address</div>
+                <div class="contact-detail-value">14 Forest Road, Ashford, Co. Wicklow, A67 YX21</div>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-detail-icon">📞</div>
+              <div>
+                <div class="contact-detail-label">Phone</div>
+                <div class="contact-detail-value">+353 1 234 5678</div>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-detail-icon">✉️</div>
+              <div>
+                <div class="contact-detail-label">Email</div>
+                <div class="contact-detail-value">hello@ecovistacarpentry.com</div>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-detail-icon">🕐</div>
+              <div>
+                <div class="contact-detail-label">Office Hours</div>
+                <div class="contact-detail-value">Mon – Fri: 8:00am – 6:00pm</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form fade-up">
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name</label>
+              <input type="text" placeholder="James" />
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" placeholder="Hargreaves" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Email Address</label>
+              <input type="email" placeholder="james@email.com" />
+            </div>
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" placeholder="+353 87 000 0000" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Project Type</label>
+            <select>
+              <option value="">Select a service...</option>
+              <option>Custom Timber Home</option>
+              <option>Porch or Outdoor Space</option>
+              <option>Bespoke Woodwork / Joinery</option>
+              <option>Extension or Renovation</option>
+              <option>Eco-Passive Build</option>
+              <option>Design Consultancy</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Approximate Budget</label>
+            <select>
+              <option value="">Select a range...</option>
+              <option>Under €50k</option>
+              <option>€50k – €150k</option>
+              <option>€150k – €300k</option>
+              <option>€300k – €500k</option>
+              <option>€500k+</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Tell us about your project</label>
+            <textarea placeholder="Describe your vision, site location, timeline, or any questions you have — we read every word."></textarea>
+          </div>
+          <button class="form-submit" type="submit">Send Enquiry →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ────────────────────────────────────────────────── -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="nav-logo">
+            <div class="nav-logo-icon">🌲</div>
+            <div>
+              <div class="nav-logo-text">EcoVista</div>
+              <div class="nav-logo-sub">Carpentry</div>
+            </div>
+          </a>
+          <p>Master timber builders serving Ireland and beyond. English-speaking craftsmen, sustainable materials, 18 years of proven expertise.</p>
+          <div class="footer-socials">
+            <div class="footer-social">f</div>
+            <div class="footer-social">in</div>
+            <div class="footer-social">ig</div>
+            <div class="footer-social">yt</div>
+          </div>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Services</div>
+          <ul>
+            <li><a href="#">Custom Timber Homes</a></li>
+            <li><a href="#">Porches & Decks</a></li>
+            <li><a href="#">Bespoke Joinery</a></li>
+            <li><a href="#">Extensions</a></li>
+            <li><a href="#">Eco-Passive Builds</a></li>
+            <li><a href="#">Design Consultancy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Company</div>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Our Process</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Sustainability</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Contact</div>
+          <ul>
+            <li><a href="#">Get a Free Quote</a></li>
+            <li><a href="#">Book a Site Visit</a></li>
+            <li><a href="#">hello@ecovistacarpentry.com</a></li>
+            <li><a href="#">+353 1 234 5678</a></li>
+            <li><a href="#">Co. Wicklow, Ireland</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy">© 2026 EcoVista Carpentry Ltd. All rights reserved.</div>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Settings</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ─── SCRIPTS ───────────────────────────────────────────────── -->
+  <script>
+    // Nav scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Scroll-reveal
+    const fadeEls = document.querySelectorAll('.fade-up');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    fadeEls.forEach(el => observer.observe(el));
+
+    // Portfolio filter
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      });
+    });
+  </script>
+</body>
+</html>

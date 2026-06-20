@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Live Masterclass — Pão da Mãe | Francisca Fonseca</title>
+  <meta name="description" content="Join Francisca's free live masterclass and learn to bake real sourdough bread at home — with method, confidence, and no expensive equipment." />
+  <meta property="og:title" content="Free Live Masterclass — Pão da Mãe" />
+  <meta property="og:description" content="Learn to bake bread your family will actually eat. Free live masterclass with Francisca Fonseca." />
+  <meta property="og:image" content="Assets/HD Images/_Z8A6254-Aprimorado-NR.jpg" />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Pinyon+Script&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── RESET ──────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: 'DM Sans', system-ui, sans-serif; background: #F3EAD8; color: #1A1209; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── TOKENS ─────────────────────────────────────────── */
+    :root {
+      --ink:         #1A1209;
+      --ink-80:      rgba(26,18,9,0.80);
+      --cream:       #FDF8EF;
+      --linen:       #F3EAD8;
+      --linen-mid:   #E8D8BC;
+      --terra:       #A84828;
+      --terra-h:     #C05030;
+      --gold:        #B8902A;
+      --gold-l:      #D4A843;
+      --sage:        #5C6B4E;
+      --sage-l:      #8A9E79;
+      --white:       #FFFFFF;
+
+      --fd: 'Cormorant Garamond', Georgia, serif;
+      --fb: 'DM Sans', system-ui, sans-serif;
+      --fs: 'Pinyon Script', cursive;
+
+      --ease: cubic-bezier(0.22,1,0.36,1);
+    }
+
+    /* ─── ANIMATIONS ─────────────────────────────────────── */
+    @keyframes pulse-ring {
+      0%   { transform: scale(1); opacity: .8; }
+      70%  { transform: scale(1.5); opacity: 0; }
+      100% { transform: scale(1.5); opacity: 0; }
+    }
+    @keyframes ticker {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes barFill {
+      from { width: 0; }
+      to   { width: var(--fill-pct, 68%); }
+    }
+    @keyframes numberCount {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    .reveal {
+      opacity: 0; transform: translateY(32px);
+      transition: opacity .75s var(--ease), transform .75s var(--ease);
+    }
+    .reveal.in { opacity: 1; transform: none; }
+    .reveal.d1 { transition-delay: .10s; }
+    .reveal.d2 { transition-delay: .20s; }
+    .reveal.d3 { transition-delay: .30s; }
+    .reveal.d4 { transition-delay: .40s; }
+    .reveal.d5 { transition-delay: .50s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* ─── LAYOUT ─────────────────────────────────────────── */
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 48px; }
+
+    /* ─── TYPOGRAPHY ─────────────────────────────────────── */
+    .eyebrow {
+      font-family: var(--fb);
+      font-size: 11px; font-weight: 600;
+      letter-spacing: .20em; text-transform: uppercase;
+      color: var(--gold); display: block;
+    }
+    .display {
+      font-family: var(--fd);
+      font-size: clamp(38px, 5.5vw, 72px);
+      font-weight: 700; line-height: 1.06;
+      letter-spacing: -.01em;
+    }
+    .display em { font-style: italic; color: var(--gold-l); }
+    .section-h {
+      font-family: var(--fd);
+      font-size: clamp(30px, 4vw, 52px);
+      font-weight: 700; line-height: 1.12;
+    }
+    .section-h em { font-style: italic; color: var(--terra); }
+    .script { font-family: var(--fs); font-size: 28px; color: var(--terra); display: block; }
+
+    /* ─── BUTTONS ────────────────────────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      font-family: var(--fb); font-size: 12px; font-weight: 600;
+      letter-spacing: .15em; text-transform: uppercase;
+      border: none; cursor: pointer; border-radius: 4px;
+      transition: transform .22s var(--ease), box-shadow .22s var(--ease), background .22s;
+      white-space: nowrap;
+    }
+    .btn:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+    .btn-cta {
+      background: var(--terra);
+      color: var(--cream);
+      padding: 20px 44px;
+      font-size: 13px;
+      border-radius: 4px;
+    }
+    .btn-cta:hover { background: var(--terra-h); transform: translateY(-2px); box-shadow: 0 14px 44px rgba(168,72,40,.42); }
+    .btn-cta-lg { padding: 22px 56px; font-size: 14px; }
+    .btn-ghost {
+      background: transparent; color: var(--cream);
+      padding: 18px 36px; border: 1.5px solid rgba(253,248,239,.45); border-radius: 4px;
+    }
+    .btn-ghost:hover { border-color: var(--cream); background: rgba(253,248,239,.08); transform: translateY(-2px); }
+
+    /* ─── FORM INPUTS ────────────────────────────────────── */
+    .input-wrap { position: relative; }
+    .input-icon {
+      position: absolute; left: 16px; top: 50%; transform: translateY(-50%);
+      width: 17px; height: 17px; color: var(--gold); pointer-events: none;
+    }
+    .field {
+      width: 100%; padding: 16px 16px 16px 46px;
+      border: 1.5px solid var(--linen-mid); border-radius: 4px;
+      background: var(--cream);
+      font-family: var(--fb); font-size: 15px; color: var(--ink);
+      transition: border-color .2s, box-shadow .2s; outline: none;
+    }
+    .field::placeholder { color: #B0A898; }
+    .field:focus { border-color: var(--terra); box-shadow: 0 0 0 3px rgba(168,72,40,.12); }
+
+    /* ═══════════════════════════════════════════════════════
+       1. URGENCY BAR
+    ═══════════════════════════════════════════════════════ */
+    #urgency-bar {
+      background: var(--ink);
+      overflow: hidden;
+      padding: 0;
+      height: 44px;
+      display: flex; align-items: center;
+    }
+    .ticker-track {
+      display: flex; align-items: center;
+      white-space: nowrap;
+      animation: ticker 28s linear infinite;
+      will-change: transform;
+    }
+    .ticker-item {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 12px; font-weight: 500; letter-spacing: .06em;
+      color: rgba(253,248,239,.80);
+      padding: 0 40px;
+    }
+    .ticker-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #ef4444; flex-shrink: 0;
+      box-shadow: 0 0 0 0 rgba(239,68,68,.5);
+      animation: pulse-ring 2s ease infinite;
+    }
+    .ticker-accent { color: var(--gold-l); font-weight: 700; }
+    .ticker-divider { color: rgba(253,248,239,.25); padding: 0 8px; }
+
+    /* ═══════════════════════════════════════════════════════
+       2. HERO
+    ═══════════════════════════════════════════════════════ */
+    #hero {
+      min-height: calc(100vh - 44px);
+      position: relative;
+      display: flex; flex-direction: column;
+      background: var(--ink);
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('Assets/HD%20Images/_Z8A6326-Aprimorado-NR.jpg');
+      background-size: cover; background-position: center 20%;
+      will-change: transform;
+    }
+    /* Multi-layer gradient — strong left for copy, gentle right for form */
+    .hero-bg::after {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(90deg, rgba(26,18,9,.92) 0%, rgba(26,18,9,.72) 42%, rgba(26,18,9,.38) 68%, rgba(26,18,9,.20) 100%),
+        linear-gradient(180deg, rgba(26,18,9,.45) 0%, transparent 35%, transparent 65%, rgba(26,18,9,.70) 100%);
+    }
+
+    /* Nav */
+    .hero-nav {
+      position: relative; z-index: 5;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 28px 48px;
+    }
+    .hero-logo { height: 52px; width: auto; object-fit: contain; }
+    .hero-live-pill {
+      display: flex; align-items: center; gap: 9px;
+      background: rgba(253,248,239,.10);
+      border: 1px solid rgba(253,248,239,.18);
+      backdrop-filter: blur(12px); border-radius: 100px;
+      padding: 8px 18px;
+      font-size: 12px; font-weight: 500; color: rgba(253,248,239,.85);
+      letter-spacing: .05em;
+    }
+    .live-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #ef4444; flex-shrink: 0;
+      position: relative;
+    }
+    .live-dot::before {
+      content: ''; position: absolute; inset: -3px;
+      border-radius: 50%; border: 1.5px solid #ef4444;
+      animation: pulse-ring 1.8s ease infinite;
+    }
+
+    /* Hero grid */
+    .hero-grid {
+      position: relative; z-index: 4;
+      flex: 1; display: grid;
+      grid-template-columns: 1fr 440px;
+      gap: 64px; align-items: center;
+      padding: 32px 48px 72px;
+      max-width: 1280px; margin: 0 auto; width: 100%;
+    }
+
+    /* Left copy */
+    .hero-copy {}
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: var(--terra); color: var(--cream);
+      font-size: 11px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase;
+      padding: 7px 18px; border-radius: 2px; margin-bottom: 30px;
+    }
+    .hero-h { color: var(--cream); margin-bottom: 22px; }
+
+    .hero-sub {
+      font-size: clamp(15px, 1.6vw, 18px);
+      color: rgba(253,248,239,.75);
+      line-height: 1.72; max-width: 480px; margin-bottom: 36px;
+    }
+
+    /* Date/Time/Platform pills */
+    .event-pills {
+      display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 38px;
+    }
+    .epill {
+      display: flex; align-items: center; gap: 8px;
+      background: rgba(253,248,239,.09);
+      border: 1px solid rgba(253,248,239,.18);
+      backdrop-filter: blur(8px); border-radius: 3px;
+      padding: 10px 18px;
+      font-size: 13px; font-weight: 500; color: rgba(253,248,239,.90);
+    }
+    .epill svg { width: 15px; height: 15px; color: var(--gold-l); flex-shrink: 0; }
+    .epill strong { color: var(--cream); font-weight: 600; }
+
+    /* Social proof */
+    .hero-proof {
+      display: flex; align-items: center; gap: 14px;
+    }
+    .proof-avatars { display: flex; }
+    .proof-avatar {
+      width: 38px; height: 38px; border-radius: 50%;
+      border: 2.5px solid rgba(253,248,239,.35);
+      margin-left: -10px; overflow: hidden;
+      background: linear-gradient(135deg, #c49a6c, #8a6a3c);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700; color: var(--cream);
+      flex-shrink: 0;
+    }
+    .proof-avatar:first-child { margin-left: 0; }
+    .proof-text { font-size: 13px; color: rgba(253,248,239,.78); line-height: 1.45; }
+    .proof-text strong { color: var(--cream); font-weight: 600; }
+
+    /* ─── FORM CARD ───────────────────────────────────────── */
+    .hero-card {
+      background: var(--cream);
+      border-radius: 6px;
+      box-shadow: 0 32px 80px rgba(26,18,9,.40), 0 0 0 1px rgba(26,18,9,.08);
+      overflow: hidden;
+    }
+    .card-topbar {
+      background: var(--ink);
+      padding: 16px 28px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .card-topbar-label {
+      font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--gold-l);
+    }
+    .card-spots {
+      display: flex; align-items: center; gap: 7px;
+      font-size: 12px; font-weight: 500; color: rgba(253,248,239,.65);
+    }
+    .card-spots-dot { width: 6px; height: 6px; border-radius: 50%; background: #f59e0b; }
+
+    .card-body { padding: 28px 28px 24px; }
+
+    .card-title {
+      font-family: var(--fd);
+      font-size: 26px; font-weight: 700; line-height: 1.18;
+      color: var(--ink); text-align: center; margin-bottom: 4px;
+    }
+    .card-sub {
+      font-size: 13px; color: #8a7e74; text-align: center; margin-bottom: 20px; line-height: 1.5;
+    }
+
+    /* Mini countdown inside card */
+    .card-countdown {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 4px; margin-bottom: 22px;
+      background: var(--linen); border-radius: 4px; padding: 14px 12px;
+    }
+    .mcd-unit { text-align: center; flex: 1; }
+    .mcd-num {
+      font-family: var(--fd);
+      font-size: 28px; font-weight: 700; color: var(--terra); line-height: 1;
+      display: block;
+    }
+    .mcd-lbl {
+      font-size: 9px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--sage); margin-top: 4px; display: block;
+    }
+    .card-countdown-sep {
+      font-family: var(--fd); font-size: 22px; color: var(--terra); opacity: .35;
+      padding-bottom: 12px; flex-shrink: 0;
+    }
+
+    .card-form { display: flex; flex-direction: column; gap: 10px; margin-bottom: 12px; }
+
+    .card-btn {
+      width: 100%; padding: 18px;
+      background: var(--terra); color: var(--cream);
+      font-family: var(--fb); font-size: 12px; font-weight: 700;
+      letter-spacing: .16em; text-transform: uppercase;
+      border: none; border-radius: 4px; cursor: pointer;
+      transition: background .22s, transform .22s, box-shadow .22s;
+    }
+    .card-btn:hover { background: var(--terra-h); transform: translateY(-1px); box-shadow: 0 10px 32px rgba(168,72,40,.38); }
+    .card-btn:focus-visible { outline: 3px solid var(--terra); outline-offset: 3px; }
+    .card-btn:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+
+    /* Spots bar */
+    .spots-row { margin-top: 16px; }
+    .spots-meta {
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 11px; color: #8a7e74; margin-bottom: 7px;
+    }
+    .spots-meta strong { color: var(--terra); font-weight: 700; }
+    .bar-track {
+      height: 5px; background: var(--linen-mid); border-radius: 100px; overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%; background: linear-gradient(90deg, var(--terra), var(--gold));
+      border-radius: 100px;
+      --fill-pct: 68%;
+      width: var(--fill-pct);
+      animation: barFill 1.4s var(--ease) forwards;
+    }
+    .spots-note {
+      font-size: 11px; color: #aaa098; text-align: center; margin-top: 12px;
+      display: flex; align-items: center; justify-content: center; gap: 5px;
+    }
+    .spots-note svg { width: 12px; height: 12px; color: var(--sage); }
+
+    #form-success-msg {
+      display: none; text-align: center; padding: 20px 16px;
+      background: rgba(92,107,78,.10); border-radius: 4px; margin-top: 8px;
+      font-size: 14px; color: var(--sage); font-weight: 500; line-height: 1.6;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       3. URGENCY STRIP (below hero)
+    ═══════════════════════════════════════════════════════ */
+    #urgency-strip {
+      background: var(--terra);
+      padding: 18px 48px;
+      display: flex; align-items: center; justify-content: center; gap: 48px;
+      flex-wrap: wrap;
+    }
+    .us-item {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 13px; font-weight: 600;
+      color: rgba(253,248,239,.95); letter-spacing: .03em;
+    }
+    .us-item svg { width: 18px; height: 18px; color: rgba(253,248,239,.65); flex-shrink: 0; }
+    .us-divider { width: 1px; height: 20px; background: rgba(253,248,239,.25); }
+
+    /* ═══════════════════════════════════════════════════════
+       4. WHAT YOU'LL LEARN
+    ═══════════════════════════════════════════════════════ */
+    #learn {
+      background: var(--cream);
+      padding: 112px 0;
+    }
+    .learn-grid {
+      display: grid; grid-template-columns: 1fr 480px;
+      gap: 96px; align-items: center;
+    }
+    .learn-left .eyebrow { margin-bottom: 16px; }
+    .learn-left .section-h { margin-bottom: 12px; }
+    .learn-intro {
+      font-size: 17px; color: #5a4e42; line-height: 1.78;
+      margin-bottom: 52px; max-width: 480px;
+    }
+    .check-list { display: flex; flex-direction: column; gap: 28px; }
+    .check-row { display: flex; align-items: flex-start; gap: 18px; }
+    .check-ico {
+      flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%;
+      background: var(--terra); display: flex; align-items: center; justify-content: center;
+      margin-top: 2px;
+    }
+    .check-ico svg { width: 14px; height: 14px; color: white; }
+    .check-body h4 {
+      font-family: var(--fd); font-size: 20px; font-weight: 700;
+      margin-bottom: 5px; color: var(--ink);
+    }
+    .check-body p { font-size: 14px; color: #6a5e52; line-height: 1.6; }
+
+    /* Right image */
+    .learn-img-col { position: relative; }
+    .learn-img {
+      border-radius: 4px; overflow: hidden;
+      aspect-ratio: 3/4;
+      box-shadow: 0 24px 64px rgba(26,18,9,.22);
+    }
+    .learn-img img {
+      width: 100%; height: 100%; object-fit: cover; object-position: top center;
+      transition: transform .6s var(--ease);
+    }
+    .learn-img:hover img { transform: scale(1.04); }
+    .learn-img-badge {
+      position: absolute; bottom: 28px; left: -28px;
+      background: var(--ink); border-radius: 4px; padding: 20px 24px;
+      box-shadow: 0 12px 40px rgba(26,18,9,.35);
+      min-width: 220px;
+    }
+    .lib-num {
+      font-family: var(--fd); font-size: 42px; font-weight: 700;
+      color: var(--gold-l); line-height: 1; margin-bottom: 4px;
+    }
+    .lib-label { font-size: 12px; color: rgba(253,248,239,.60); letter-spacing: .06em; }
+
+    /* ═══════════════════════════════════════════════════════
+       5. CINEMATIC PHOTO STRIP
+    ═══════════════════════════════════════════════════════ */
+    #photo-strip {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      height: 520px; overflow: hidden;
+    }
+    .photo-strip-item {
+      position: relative; overflow: hidden; cursor: default;
+    }
+    .photo-strip-item img {
+      width: 100%; height: 100%; object-fit: cover; object-position: top center;
+      transition: transform .7s var(--ease);
+    }
+    .photo-strip-item:hover img { transform: scale(1.06); }
+    .psi-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 45%, rgba(26,18,9,.88) 100%);
+    }
+    .psi-text {
+      position: absolute; bottom: 32px; left: 28px; right: 28px;
+    }
+    .psi-step {
+      font-size: 10px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--gold-l); margin-bottom: 8px; display: block;
+    }
+    .psi-title {
+      font-family: var(--fd); font-size: 24px; font-weight: 700;
+      color: var(--cream); line-height: 1.2;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       6. DOUGH TEXTURE SECTION
+    ═══════════════════════════════════════════════════════ */
+    #dough-section {
+      position: relative; overflow: hidden;
+      min-height: 480px;
+      display: flex; align-items: center;
+    }
+    .dough-bg {
+      position: absolute; inset: 0;
+      background-image: url('Assets/HD%20Images/_Z8A6328-Aprimorado-NR.jpg');
+      background-size: cover; background-position: center;
+    }
+    .dough-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(90deg, rgba(26,18,9,.90) 0%, rgba(26,18,9,.70) 50%, rgba(26,18,9,.35) 100%);
+    }
+    .dough-content {
+      position: relative; z-index: 2;
+      max-width: 680px; padding: 80px 48px;
+    }
+    .dough-content .eyebrow { margin-bottom: 20px; }
+    .dough-quote {
+      font-family: var(--fd); font-size: clamp(26px, 3.5vw, 44px);
+      font-style: italic; font-weight: 600; color: var(--cream);
+      line-height: 1.3; margin-bottom: 28px;
+    }
+    .dough-attr {
+      font-size: 13px; color: rgba(253,248,239,.55); letter-spacing: .06em;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       7. ABOUT FRANCISCA
+    ═══════════════════════════════════════════════════════ */
+    #about {
+      background: var(--linen);
+      padding: 112px 0;
+    }
+    .about-grid {
+      display: grid; grid-template-columns: 520px 1fr;
+      gap: 88px; align-items: start;
+    }
+    .about-img-col { position: relative; }
+    .about-main {
+      border-radius: 4px; overflow: hidden;
+      aspect-ratio: 3/4;
+      box-shadow: 0 24px 64px rgba(26,18,9,.20);
+    }
+    .about-main img {
+      width: 100%; height: 100%; object-fit: cover; object-position: top center;
+    }
+    /* Overlapping second image */
+    .about-accent {
+      position: absolute; bottom: -40px; right: -36px;
+      width: 200px; height: 240px;
+      border-radius: 4px; overflow: hidden;
+      border: 6px solid var(--cream);
+      box-shadow: 0 16px 48px rgba(26,18,9,.25);
+    }
+    .about-accent img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+
+    .about-text-col { padding-top: 12px; }
+    .about-text-col .eyebrow { margin-bottom: 16px; }
+    .about-text-col .section-h { margin-bottom: 10px; }
+    .about-script-name { margin-bottom: 32px; }
+    .about-p {
+      font-size: 16px; line-height: 1.82; color: #4a3e32; margin-bottom: 22px;
+    }
+    .about-stats {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 20px; margin: 36px 0;
+    }
+    .stat-box {
+      background: var(--cream); border-radius: 4px;
+      padding: 22px 20px; text-align: center;
+      border: 1px solid var(--linen-mid);
+    }
+    .stat-num {
+      font-family: var(--fd); font-size: 36px; font-weight: 700;
+      color: var(--terra); line-height: 1; margin-bottom: 6px;
+    }
+    .stat-lbl { font-size: 12px; color: #8a7e74; line-height: 1.4; }
+    .about-creds { display: flex; flex-direction: column; gap: 12px; }
+    .acred {
+      display: flex; align-items: center; gap: 12px;
+      font-size: 14px; font-weight: 500; color: var(--sage);
+    }
+    .acred svg { width: 17px; height: 17px; color: var(--sage-l); flex-shrink: 0; }
+
+    /* ═══════════════════════════════════════════════════════
+       8. TESTIMONIALS
+    ═══════════════════════════════════════════════════════ */
+    #testimonials {
+      background: var(--ink);
+      padding: 112px 0;
+    }
+    .test-header { text-align: center; margin-bottom: 72px; }
+    .test-header .eyebrow { margin-bottom: 16px; }
+    .test-header .section-h { color: var(--cream); }
+    .test-header .section-h em { color: var(--gold-l); }
+
+    .test-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .t-card {
+      border-radius: 4px; padding: 36px 30px;
+      border: 1px solid rgba(253,248,239,.08);
+      background: rgba(253,248,239,.04);
+      transition: border-color .25s, background .25s;
+    }
+    .t-card:hover { border-color: rgba(253,248,239,.18); background: rgba(253,248,239,.07); }
+    .t-card.feature {
+      background: var(--terra); border-color: transparent;
+    }
+    .t-card.feature:hover { background: var(--terra-h); }
+    .t-stars { display: flex; gap: 3px; color: var(--gold-l); font-size: 14px; margin-bottom: 20px; }
+    .t-quote {
+      font-family: var(--fd); font-size: 19px; font-style: italic;
+      line-height: 1.58; color: rgba(253,248,239,.88); margin-bottom: 28px;
+    }
+    .t-author { display: flex; align-items: center; gap: 13px; }
+    .t-ava {
+      width: 46px; height: 46px; border-radius: 50%; overflow: hidden;
+      background: linear-gradient(135deg, #c49a6c, #8a6a3c);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; font-weight: 700; color: var(--cream); flex-shrink: 0;
+    }
+    .t-name { font-size: 14px; font-weight: 600; color: var(--cream); margin-bottom: 2px; }
+    .t-role { font-size: 12px; color: rgba(253,248,239,.45); }
+
+    /* ═══════════════════════════════════════════════════════
+       9. SCHEDULE + COUNTDOWN
+    ═══════════════════════════════════════════════════════ */
+    #schedule {
+      background: var(--cream);
+      padding: 112px 0;
+    }
+    .schedule-card {
+      display: grid; grid-template-columns: 1fr 1fr;
+      border-radius: 6px; overflow: hidden;
+      box-shadow: 0 24px 72px rgba(26,18,9,.18);
+    }
+    .sched-left {
+      background: var(--linen); padding: 64px 56px;
+      position: relative; overflow: hidden;
+    }
+    .sched-left::before {
+      content: ''; position: absolute;
+      bottom: -80px; right: -80px;
+      width: 280px; height: 280px; border-radius: 50%;
+      background: rgba(168,72,40,.06); pointer-events: none;
+    }
+    .sched-left .eyebrow { margin-bottom: 16px; }
+    .sched-left .section-h { margin-bottom: 10px; }
+    .sched-sub { font-size: 15px; color: #6a5e52; margin-bottom: 48px; line-height: 1.6; }
+    .sched-items { display: flex; flex-direction: column; gap: 22px; margin-bottom: 48px; }
+    .sched-item {
+      display: flex; align-items: flex-start; gap: 16px;
+    }
+    .sched-ico {
+      width: 42px; height: 42px; border-radius: 4px;
+      background: var(--cream); border: 1px solid var(--linen-mid);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--terra); flex-shrink: 0;
+    }
+    .sched-ico svg { width: 19px; height: 19px; }
+    .sched-lbl { font-size: 10px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--gold); margin-bottom: 3px; }
+    .sched-val { font-size: 15px; font-weight: 500; color: var(--ink); line-height: 1.4; }
+
+    /* Countdown right */
+    .sched-right {
+      background: var(--ink); padding: 64px 56px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+    }
+    .sched-right .eyebrow { margin-bottom: 14px; }
+    .cd-title {
+      font-family: var(--fd); font-size: clamp(24px, 3vw, 36px); font-weight: 700;
+      color: var(--cream); margin-bottom: 48px; line-height: 1.2;
+    }
+    .cd-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 10px; width: 100%; margin-bottom: 48px;
+    }
+    .cd-cell {
+      background: rgba(253,248,239,.06);
+      border: 1px solid rgba(253,248,239,.10);
+      border-radius: 4px; padding: 22px 8px;
+      text-align: center;
+    }
+    .cd-n {
+      font-family: var(--fd); font-size: clamp(40px, 4.5vw, 56px);
+      font-weight: 700; color: var(--cream); line-height: 1; display: block;
+    }
+    .cd-l {
+      font-size: 10px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+      color: rgba(253,248,239,.40); margin-top: 8px; display: block;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       10. SECOND REGISTRATION (bottom)
+    ═══════════════════════════════════════════════════════ */
+    #register-bottom {
+      background: var(--linen);
+      padding: 112px 0;
+    }
+    .reg-bottom-grid {
+      display: grid; grid-template-columns: 1fr 480px;
+      gap: 80px; align-items: center;
+    }
+    .reg-left .eyebrow { margin-bottom: 18px; }
+    .reg-left .section-h { margin-bottom: 16px; }
+    .reg-left p { font-size: 17px; color: #5a4e42; line-height: 1.78; margin-bottom: 28px; }
+    .reg-bullets { display: flex; flex-direction: column; gap: 14px; }
+    .reg-bullet {
+      display: flex; align-items: center; gap: 12px;
+      font-size: 14px; font-weight: 500; color: var(--sage);
+    }
+    .reg-bullet svg { width: 18px; height: 18px; color: var(--terra); flex-shrink: 0; }
+
+    /* Right: bread image + floating card */
+    .reg-img-wrap { position: relative; }
+    .reg-bread-img {
+      border-radius: 4px; overflow: hidden;
+      aspect-ratio: 4/3;
+      box-shadow: 0 20px 56px rgba(26,18,9,.18);
+    }
+    .reg-bread-img img { width: 100%; height: 100%; object-fit: cover; }
+    .reg-float-card {
+      position: absolute; bottom: -28px; left: -28px;
+      background: var(--terra); border-radius: 4px; padding: 24px 28px;
+      box-shadow: 0 16px 48px rgba(168,72,40,.40);
+      min-width: 240px;
+    }
+    .rfc-title {
+      font-family: var(--fd); font-size: 20px; font-weight: 700;
+      color: var(--cream); margin-bottom: 6px;
+    }
+    .rfc-sub { font-size: 13px; color: rgba(253,248,239,.70); line-height: 1.5; }
+
+    /* ═══════════════════════════════════════════════════════
+       11. FINAL CTA
+    ═══════════════════════════════════════════════════════ */
+    #final-cta {
+      position: relative; overflow: hidden;
+      padding: 120px 48px;
+      text-align: center;
+      background: var(--ink);
+    }
+    /* Bread background texture */
+    .fca-bg {
+      position: absolute; inset: 0;
+      background-image: url('Pao.avif');
+      background-size: cover; background-position: center;
+      opacity: .12;
+    }
+    .fca-inner { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; }
+    .fca-inner .eyebrow { margin-bottom: 18px; }
+    .fca-h {
+      font-family: var(--fd); font-size: clamp(36px, 5.5vw, 68px);
+      font-style: italic; font-weight: 700; color: var(--cream);
+      line-height: 1.08; margin-bottom: 20px;
+    }
+    .fca-h em { color: var(--gold-l); font-style: normal; }
+    .fca-sub { font-size: 18px; color: rgba(253,248,239,.62); margin-bottom: 52px; line-height: 1.7; }
+    .fca-actions { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    .fca-lock {
+      display: flex; align-items: center; gap: 7px;
+      font-size: 12px; color: rgba(253,248,239,.38);
+    }
+    .fca-lock svg { width: 13px; height: 13px; color: var(--sage-l); }
+
+    /* ═══════════════════════════════════════════════════════
+       12. FOOTER
+    ═══════════════════════════════════════════════════════ */
+    footer {
+      background: #110d07;
+      border-top: 1px solid rgba(253,248,239,.06);
+    }
+    .footer-row {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 24px; padding: 32px 48px; flex-wrap: wrap;
+    }
+    .footer-brand { display: flex; align-items: center; gap: 16px; }
+    .footer-logo { height: 38px; opacity: .55; }
+    .footer-tagline { font-family: var(--fs); font-size: 20px; color: rgba(253,248,239,.30); }
+    .footer-links { display: flex; gap: 28px; }
+    .footer-links a { font-size: 12px; color: rgba(253,248,239,.30); transition: color .2s; }
+    .footer-links a:hover { color: rgba(253,248,239,.70); }
+    .footer-copy { font-size: 12px; color: rgba(253,248,239,.22); }
+
+    /* ═══════════════════════════════════════════════════════
+       STICKY MOBILE BAR
+    ═══════════════════════════════════════════════════════ */
+    #sticky-bar {
+      display: none; position: fixed;
+      bottom: 0; left: 0; right: 0; z-index: 300;
+      background: var(--cream); border-top: 1px solid var(--linen-mid);
+      padding: 12px 20px 16px;
+      box-shadow: 0 -8px 32px rgba(26,18,9,.12);
+    }
+    .sticky-inner { display: flex; align-items: center; gap: 12px; }
+    .sticky-info { flex: 1; }
+    .sticky-date { font-size: 11px; font-weight: 700; color: var(--terra); text-transform: uppercase; letter-spacing: .08em; }
+    .sticky-free { font-size: 13px; font-weight: 600; color: var(--ink); }
+    .sticky-btn {
+      flex-shrink: 0; background: var(--terra); color: var(--cream);
+      font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+      padding: 14px 22px; border-radius: 4px; border: none; cursor: pointer;
+      white-space: nowrap;
+    }
+
+    /* ═══════════════════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════════════════ */
+    @media (max-width: 1100px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; padding: 32px 36px 64px; }
+      .hero-copy { max-width: 600px; }
+      .hero-card { max-width: 540px; }
+      .about-grid { grid-template-columns: 1fr; gap: 80px; }
+      .about-main { aspect-ratio: 16/10; }
+      .about-accent { right: 0; }
+      .reg-bottom-grid { grid-template-columns: 1fr; gap: 60px; }
+    }
+    @media (max-width: 900px) {
+      .learn-grid { grid-template-columns: 1fr; gap: 56px; }
+      .learn-img { aspect-ratio: 16/10; order: -1; }
+      .learn-img-badge { left: 20px; bottom: 20px; }
+      .test-grid { grid-template-columns: 1fr 1fr; }
+      .schedule-card { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .wrap { padding: 0 24px; }
+      #urgency-strip { padding: 14px 24px; gap: 16px; }
+      .us-divider { display: none; }
+      .hero-nav { padding: 20px 24px; }
+      .hero-logo { height: 44px; }
+      .hero-grid { padding: 24px 24px 52px; }
+      .hero-h { font-size: clamp(34px, 9vw, 50px); }
+      #photo-strip { grid-template-columns: 1fr; height: auto; }
+      .photo-strip-item { height: 280px; }
+      .dough-content { padding: 60px 24px; }
+      .about-stats { grid-template-columns: 1fr 1fr 1fr; }
+      .test-grid { grid-template-columns: 1fr; }
+      .sched-left, .sched-right { padding: 44px 32px; }
+      .cd-grid { gap: 6px; }
+      .footer-row { flex-direction: column; text-align: center; padding: 28px 24px; }
+      .footer-links { flex-wrap: wrap; justify-content: center; }
+      .footer-copy { text-align: center; }
+      #sticky-bar { display: block; }
+      body { padding-bottom: 80px; }
+    }
+    @media (min-width: 769px) { #sticky-bar { display: none !important; } }
+
+    /* ═══════════════════════════════════════════════════════
+       REGISTRATION MODAL
+    ═══════════════════════════════════════════════════════ */
+    #reg-modal {
+      display: none;
+      position: fixed; inset: 0; z-index: 1000;
+      align-items: center; justify-content: center;
+      padding: 20px;
+    }
+    #reg-modal.open { display: flex; }
+    .modal-backdrop {
+      position: absolute; inset: 0;
+      background: rgba(26,18,9,.80);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      animation: fadeIn .25s ease;
+    }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(28px) scale(.97); } to { opacity: 1; transform: none; } }
+    .modal-box {
+      position: relative; z-index: 1;
+      background: var(--cream);
+      border-radius: 8px;
+      width: 100%; max-width: 560px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 40px 100px rgba(26,18,9,.45);
+      animation: slideUp .30s var(--ease);
+    }
+    .modal-header {
+      background: var(--ink);
+      padding: 22px 28px 20px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-radius: 8px 8px 0 0;
+      border-bottom: 1px solid rgba(184,144,42,.25);
+    }
+    .modal-header-left { display: flex; flex-direction: column; gap: 4px; }
+    .modal-eyebrow {
+      font-family: var(--fb); font-size: 10px; font-weight: 700;
+      letter-spacing: .22em; text-transform: uppercase; color: var(--gold);
+    }
+    .modal-title {
+      font-family: var(--fd); font-size: 22px; font-weight: 600;
+      color: var(--cream); line-height: 1.2;
+    }
+    .modal-close {
+      background: rgba(253,248,239,.08); border: 1px solid rgba(253,248,239,.12);
+      color: rgba(253,248,239,.60); border-radius: 4px;
+      width: 36px; height: 36px; cursor: pointer; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; line-height: 1; transition: background .18s, color .18s;
+    }
+    .modal-close:hover { background: rgba(253,248,239,.14); color: var(--cream); }
+    .modal-subheader {
+      background: var(--linen); padding: 10px 28px;
+      display: flex; align-items: center; gap: 20px;
+      font-size: 12px; color: #8a7a68; font-weight: 500;
+      border-bottom: 1px solid var(--linen-mid);
+    }
+    .modal-subheader span { display: flex; align-items: center; gap: 6px; }
+    .modal-subheader svg { width: 13px; height: 13px; color: var(--terra); flex-shrink: 0; }
+    .modal-body { padding: 0; }
+    .modal-body iframe {
+      display: block; width: 100%; border: none;
+      min-height: 480px;
+    }
+    .modal-trust {
+      padding: 12px 28px 16px;
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+      font-size: 11px; color: #aaa098;
+      border-top: 1px solid var(--linen-mid);
+    }
+    .modal-trust svg { width: 12px; height: 12px; flex-shrink: 0; }
+    @media (max-width: 600px) {
+      .modal-box { max-height: 95vh; }
+      .modal-header { padding: 18px 20px 16px; }
+      .modal-subheader { padding: 8px 20px; flex-wrap: wrap; gap: 10px; }
+      .modal-trust { padding: 10px 20px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════
+     1 · URGENCY BAR
+═══════════════════════════════════════════════════════ -->
+<div id="urgency-bar" role="marquee" aria-label="Event announcement">
+  <div class="ticker-track" aria-hidden="true">
+    <!-- duplicated for seamless loop -->
+    <span class="ticker-item"><span class="ticker-dot"></span> <span class="ticker-accent">FREE LIVE MASTERCLASS</span> <span class="ticker-divider">·</span> July 1, 2026 at 8PM Lisbon <span class="ticker-divider">·</span> Only <span class="ticker-accent">&nbsp;47 spots&nbsp;</span> remaining <span class="ticker-divider">·</span> Registration closes soon</span>
+    <span class="ticker-item"><span class="ticker-dot"></span> Join 2,000+ home bakers already enrolled <span class="ticker-divider">·</span> <span class="ticker-accent">No equipment needed</span> <span class="ticker-divider">·</span> Beginner friendly <span class="ticker-divider">·</span> 100% Free</span>
+    <span class="ticker-item"><span class="ticker-dot"></span> <span class="ticker-accent">FREE LIVE MASTERCLASS</span> <span class="ticker-divider">·</span> July 1, 2026 at 8PM Lisbon <span class="ticker-divider">·</span> Only <span class="ticker-accent">&nbsp;47 spots&nbsp;</span> remaining <span class="ticker-divider">·</span> Registration closes soon</span>
+    <span class="ticker-item"><span class="ticker-dot"></span> Join 2,000+ home bakers already enrolled <span class="ticker-divider">·</span> <span class="ticker-accent">No equipment needed</span> <span class="ticker-divider">·</span> Beginner friendly <span class="ticker-divider">·</span> 100% Free</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     2 · HERO
+═══════════════════════════════════════════════════════ -->
+<section id="hero" aria-labelledby="hero-h">
+  <div class="hero-bg" id="hero-bg" aria-hidden="true"></div>
+
+  <nav class="hero-nav" aria-label="Site navigation">
+    <img src="Logo/logo%20white.jpeg" alt="Pão da Mãe" class="hero-logo" />
+    <div class="hero-live-pill" aria-label="Live and interactive event">
+      <span class="live-dot" aria-hidden="true"></span>
+      Live &amp; Interactive — Questions answered in real time
+    </div>
+  </nav>
+
+  <div class="hero-grid">
+    <!-- LEFT: COPY -->
+    <div class="hero-copy">
+      <div class="hero-badge" aria-label="Free live masterclass">
+        <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor" aria-hidden="true"><circle cx="4" cy="4" r="4"/></svg>
+        Free Live Masterclass
+      </div>
+
+      <h1 class="display hero-h" id="hero-h">
+        Bake Bread Your<br>Family Will Actually<br><em>Love — Every Time.</em>
+      </h1>
+
+      <p class="hero-sub">
+        Discover Francisca's simple, proven method for making real sourdough bread at home —
+        even if your starter never does what it's supposed to.
+      </p>
+
+      <!-- Date / Time / Platform -->
+      <div class="event-pills" role="list" aria-label="Event details">
+        <div class="epill" role="listitem">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <strong>Tuesday, July 1, 2026</strong>
+        </div>
+        <div class="epill" role="listitem">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <strong>8:00 PM</strong>&nbsp;Lisbon Time
+        </div>
+        <div class="epill" role="listitem">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          Live on Zoom / Instagram
+        </div>
+      </div>
+
+      <!-- Social proof -->
+      <div class="hero-proof">
+        <div class="proof-avatars" aria-hidden="true">
+          <div class="proof-avatar">S</div>
+          <div class="proof-avatar">M</div>
+          <div class="proof-avatar">A</div>
+          <div class="proof-avatar">J</div>
+          <div class="proof-avatar">R</div>
+        </div>
+        <p class="proof-text">
+          <strong>2,000+ home bakers</strong> already registered<br>
+          ⭐⭐⭐⭐⭐ &nbsp;4.9 out of 5 satisfaction
+        </p>
+      </div>
+    </div>
+
+    <!-- RIGHT: FORM CARD -->
+    <div class="hero-card" role="form" aria-label="Registration form">
+      <!-- Top bar -->
+      <div class="card-topbar">
+        <span class="card-topbar-label">Reserve Your Free Seat</span>
+        <div class="card-spots">
+          <span class="card-spots-dot" aria-hidden="true"></span>
+          <span><strong style="color:#f59e0b;">47</strong> spots left</span>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <h2 class="card-title">Save My Free Seat for<br>the Live Masterclass</h2>
+        <p class="card-sub">July 1 · 8 PM Lisbon · 100% Free · No equipment needed</p>
+
+        <!-- Mini countdown -->
+        <div class="card-countdown" aria-label="Time remaining until masterclass" role="timer">
+          <div class="mcd-unit">
+            <span class="mcd-num" id="mcd-d">17</span>
+            <span class="mcd-lbl">Days</span>
+          </div>
+          <span class="card-countdown-sep" aria-hidden="true">:</span>
+          <div class="mcd-unit">
+            <span class="mcd-num" id="mcd-h">08</span>
+            <span class="mcd-lbl">Hours</span>
+          </div>
+          <span class="card-countdown-sep" aria-hidden="true">:</span>
+          <div class="mcd-unit">
+            <span class="mcd-num" id="mcd-m">34</span>
+            <span class="mcd-lbl">Mins</span>
+          </div>
+          <span class="card-countdown-sep" aria-hidden="true">:</span>
+          <div class="mcd-unit">
+            <span class="mcd-num" id="mcd-s">00</span>
+            <span class="mcd-lbl">Secs</span>
+          </div>
+        </div>
+
+        <button type="button" class="card-btn" onclick="openModal()" aria-label="Reserve your free seat">
+          YES! SAVE MY FREE SEAT →
+        </button>
+
+        <!-- Spots bar -->
+        <div class="spots-row">
+          <div class="spots-meta">
+            <span>Spots filling fast</span>
+            <span><strong>68%</strong> claimed</span>
+          </div>
+          <div class="bar-track" role="progressbar" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100" aria-label="68% of spots claimed">
+            <div class="bar-fill"></div>
+          </div>
+        </div>
+        <div class="spots-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          100% free. Your information is safe.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     3 · URGENCY STRIP
+═══════════════════════════════════════════════════════ -->
+<div id="urgency-strip" role="list" aria-label="Event guarantees">
+  <div class="us-item" role="listitem">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    100% Free — No hidden fees
+  </div>
+  <div class="us-divider" aria-hidden="true"></div>
+  <div class="us-item" role="listitem">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Tuesday July 1 · 8 PM Lisbon
+  </div>
+  <div class="us-divider" aria-hidden="true"></div>
+  <div class="us-item" role="listitem">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+    Replay available for registrants
+  </div>
+  <div class="us-divider" aria-hidden="true"></div>
+  <div class="us-item" role="listitem">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+    Only 47 seats remaining
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     4 · WHAT YOU'LL LEARN
+═══════════════════════════════════════════════════════ -->
+<section id="learn" aria-labelledby="learn-h">
+  <div class="wrap">
+    <div class="learn-grid">
+      <!-- Left: copy + checklist -->
+      <div class="learn-left">
+        <span class="eyebrow reveal">In this free live masterclass</span>
+        <h2 class="section-h reveal d1" id="learn-h">
+          Simple Steps.<br>Ancient Wisdom.<br><em>Real Results.</em>
+        </h2>
+        <p class="learn-intro reveal d2">
+          No more dense loaves your family won't eat. No more wasted flour.
+          Learn the four pillars that transform average dough into bread with a
+          crispy crust, open crumb, and real depth of flavour.
+        </p>
+
+        <div class="check-list">
+          <div class="check-row reveal d1">
+            <div class="check-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="check-body">
+              <h4>The 4 Pillars of the Pão da Mãe Method</h4>
+              <p>What actually makes the difference in your bread — and what you can safely ignore.</p>
+            </div>
+          </div>
+          <div class="check-row reveal d2">
+            <div class="check-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="check-body">
+              <h4>How Fermentation Transforms Your Dough</h4>
+              <p>Understand the process and gain the confidence to apply it on your own, every week.</p>
+            </div>
+          </div>
+          <div class="check-row reveal d3">
+            <div class="check-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="check-body">
+              <h4>Fewer Ingredients, Better Bread</h4>
+              <p>Use what's already in your kitchen — with purpose and zero waste.</p>
+            </div>
+          </div>
+          <div class="check-row reveal d4">
+            <div class="check-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="check-body">
+              <h4>A Weekly Rhythm That Actually Works</h4>
+              <p>Fit real, nourishing bread-making into even the busiest family routine.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: image -->
+      <div class="learn-img-col reveal d2">
+        <div class="learn-img">
+          <img
+            src="Assets/HD%20Images/_Z8A6046-Aprimorado-NR.jpg"
+            alt="Francisca pouring sourdough starter into a traditional ceramic bowl"
+            loading="lazy"
+          />
+        </div>
+        <div class="learn-img-badge">
+          <div class="lib-num">500+</div>
+          <div class="lib-label">Families baking with confidence</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     5 · CINEMATIC PHOTO STRIP
+═══════════════════════════════════════════════════════ -->
+<div id="photo-strip" aria-label="Gallery of Francisca's bread-making process" role="list">
+  <div class="photo-strip-item reveal" role="listitem">
+    <img
+      src="Assets/HD%20Images/_Z8A5771-Aprimorado-NR-2.jpg"
+      alt="Francisca carefully measuring and adding flour"
+      loading="lazy"
+    />
+    <div class="psi-overlay" aria-hidden="true"></div>
+    <div class="psi-text">
+      <span class="psi-step">Step 01</span>
+      <div class="psi-title">Measure with Intention</div>
+    </div>
+  </div>
+  <div class="photo-strip-item reveal d2" role="listitem">
+    <img
+      src="Assets/HD%20Images/_Z8A6283-Aprimorado-NR.jpg"
+      alt="Francisca combining ingredients in the mixer"
+      loading="lazy"
+    />
+    <div class="psi-overlay" aria-hidden="true"></div>
+    <div class="psi-text">
+      <span class="psi-step">Step 02</span>
+      <div class="psi-title">Mix with Confidence</div>
+    </div>
+  </div>
+  <div class="photo-strip-item reveal d3" role="listitem">
+    <img
+      src="Assets/HD%20Images/_Z8A6291-Aprimorado-NR.jpg"
+      alt="Francisca adding the finishing elements to her dough"
+      loading="lazy"
+    />
+    <div class="psi-overlay" aria-hidden="true"></div>
+    <div class="psi-text">
+      <span class="psi-step">Step 03</span>
+      <div class="psi-title">Bake with Purpose</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     6 · DOUGH TEXTURE QUOTE SECTION
+═══════════════════════════════════════════════════════ -->
+<div id="dough-section" aria-labelledby="dough-quote">
+  <div class="dough-bg" aria-hidden="true"></div>
+  <div class="dough-content">
+    <span class="eyebrow reveal">The Pão da Mãe Philosophy</span>
+    <blockquote class="dough-quote reveal d1" id="dough-quote">
+      "Bread is more than food — it's love made visible. When you understand the process,
+      baking stops feeling like a struggle and starts feeling like a ritual."
+    </blockquote>
+    <cite class="dough-attr reveal d2">— Francisca Fonseca, Creator of the Pão da Mãe Method</cite>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     7 · ABOUT FRANCISCA
+═══════════════════════════════════════════════════════ -->
+<section id="about" aria-labelledby="about-h">
+  <div class="wrap">
+    <div class="about-grid">
+      <!-- Left: main photo + accent photo -->
+      <div class="about-img-col reveal">
+        <div class="about-main">
+          <img
+            src="Assets/HD%20Images/_Z8A6254-Aprimorado-NR.jpg"
+            alt="Francisca smiling while pouring from a traditional ceramic jug, surrounded by bread-making ingredients"
+            loading="lazy"
+          />
+        </div>
+        <!-- Accent: dough bowl close-up overlapping -->
+        <div class="about-accent" aria-hidden="true">
+          <img
+            src="Assets/HD%20Images/_Z8A6328-Aprimorado-NR.jpg"
+            alt="Hands shaping sourdough in a traditional ceramic bowl"
+            loading="lazy"
+          />
+        </div>
+      </div>
+
+      <!-- Right: text -->
+      <div class="about-text-col">
+        <span class="eyebrow reveal">Meet Your Host</span>
+        <h2 class="section-h reveal d1" id="about-h">Hi, I'm Francisca.</h2>
+        <span class="script about-script-name reveal d2">Bread baker, mother, and teacher.</span>
+
+        <p class="about-p reveal d2">
+          I'm a mother of four living in northern Portugal, and I believe bread connects us
+          to what matters most — our families, our traditions, and the planet we share.
+        </p>
+        <p class="about-p reveal d3">
+          I started baking sourdough in 2015 and quickly realised the problem wasn't the recipes —
+          it was the lack of method. Once I understood the process, everything changed.
+          Now I teach families to do the same: bake bread they're proud of, with less waste and more joy.
+        </p>
+
+        <!-- Stats -->
+        <div class="about-stats reveal d3">
+          <div class="stat-box">
+            <div class="stat-num">500+</div>
+            <div class="stat-lbl">Families taught</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">10+</div>
+            <div class="stat-lbl">Years baking &amp; teaching</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">4.9★</div>
+            <div class="stat-lbl">Student satisfaction</div>
+          </div>
+        </div>
+
+        <div class="about-creds reveal d4">
+          <div class="acred">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            Mother of 4, based in northern Portugal
+          </div>
+          <div class="acred">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+            A passion for tradition, simplicity, and nourishment
+          </div>
+          <div class="acred">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            Creator of the Pão da Mãe Method
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     8 · TESTIMONIALS
+═══════════════════════════════════════════════════════ -->
+<section id="testimonials" aria-labelledby="test-h">
+  <div class="wrap">
+    <div class="test-header">
+      <span class="eyebrow reveal">What students are saying</span>
+      <h2 class="section-h reveal d1" id="test-h">Real People. <em>Real Bread.</em></h2>
+    </div>
+
+    <div class="test-grid">
+      <div class="t-card reveal d1">
+        <div class="t-stars" aria-label="5 stars">★★★★★</div>
+        <blockquote class="t-quote">
+          "I finally understood my starter and my bread has never collapsed in the second fermentation again. Total game changer."
+        </blockquote>
+        <div class="t-author">
+          <div class="t-ava" aria-hidden="true">S</div>
+          <div>
+            <div class="t-name">Sofia M.</div>
+            <div class="t-role">Porto, Portugal</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="t-card feature reveal d2">
+        <div class="t-stars" aria-label="5 stars">★★★★★</div>
+        <blockquote class="t-quote">
+          "Francisca's teaching is practical, direct, and full of heart. I went from burning every loaf to baking bread my kids ask for every morning."
+        </blockquote>
+        <div class="t-author">
+          <div class="t-ava" aria-hidden="true">C</div>
+          <div>
+            <div class="t-name">Carla R.</div>
+            <div class="t-role">Braga, Portugal</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="t-card reveal d3">
+        <div class="t-stars" aria-label="5 stars">★★★★★</div>
+        <blockquote class="t-quote">
+          "Perfect bread on my second try. I was wasting so much flour before — now every loaf works. This method is the real deal."
+        </blockquote>
+        <div class="t-author">
+          <div class="t-ava" aria-hidden="true">I</div>
+          <div>
+            <div class="t-name">Inês T.</div>
+            <div class="t-role">Lisbon, Portugal</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     9 · SCHEDULE + COUNTDOWN
+═══════════════════════════════════════════════════════ -->
+<section id="schedule" aria-labelledby="sched-h">
+  <div class="wrap">
+    <div class="schedule-card reveal">
+      <!-- Left: details -->
+      <div class="sched-left">
+        <span class="eyebrow">Join us live. Don't miss it.</span>
+        <h2 class="section-h" id="sched-h" style="margin-bottom:8px;">Save the<br>Date.</h2>
+        <p class="sched-sub">Register now to secure your free seat before they're gone.</p>
+
+        <div class="sched-items" role="list">
+          <div class="sched-item" role="listitem">
+            <div class="sched-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <div>
+              <div class="sched-lbl">Date</div>
+              <div class="sched-val">Tuesday, July 1, 2026</div>
+            </div>
+          </div>
+          <div class="sched-item" role="listitem">
+            <div class="sched-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div class="sched-lbl">Time</div>
+              <div class="sched-val">8:00 PM — Lisbon / WET</div>
+            </div>
+          </div>
+          <div class="sched-item" role="listitem">
+            <div class="sched-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <div>
+              <div class="sched-lbl">Where</div>
+              <div class="sched-val">Live on Zoom &amp; Instagram</div>
+            </div>
+          </div>
+          <div class="sched-item" role="listitem">
+            <div class="sched-ico" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 110-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 100-5C13 2 12 7 12 7z"/></svg>
+            </div>
+            <div>
+              <div class="sched-lbl">Bonus</div>
+              <div class="sched-val">Free sourdough starter guide for all attendees</div>
+            </div>
+          </div>
+        </div>
+
+        <a href="#" class="btn btn-cta" onclick="openModal();return false;" aria-label="Register now for the free masterclass">
+          Register Now — It's Free
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- Right: countdown -->
+      <div class="sched-right" aria-label="Countdown to masterclass">
+        <span class="eyebrow" style="color:rgba(253,248,239,.50);">Masterclass begins in</span>
+        <h3 class="cd-title">Don't let this seat<br>go to someone else.</h3>
+
+        <div class="cd-grid" role="timer" aria-live="polite" aria-label="Time remaining">
+          <div class="cd-cell">
+            <span class="cd-n" id="cd-d">17</span>
+            <span class="cd-l">Days</span>
+          </div>
+          <div class="cd-cell">
+            <span class="cd-n" id="cd-h">08</span>
+            <span class="cd-l">Hours</span>
+          </div>
+          <div class="cd-cell">
+            <span class="cd-n" id="cd-m">34</span>
+            <span class="cd-l">Mins</span>
+          </div>
+          <div class="cd-cell">
+            <span class="cd-n" id="cd-s">00</span>
+            <span class="cd-l">Secs</span>
+          </div>
+        </div>
+
+        <a href="#" class="btn btn-ghost" onclick="openModal();return false;" style="width:100%;justify-content:center;" aria-label="Claim your free seat">
+          CLAIM MY FREE SEAT
+        </a>
+        <p style="margin-top:14px;font-size:12px;color:rgba(253,248,239,.30);">
+          Only 47 seats remaining — don't miss out.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     10 · SECOND REGISTRATION
+═══════════════════════════════════════════════════════ -->
+<section id="register-bottom" aria-labelledby="reg-h">
+  <div class="wrap">
+    <div class="reg-bottom-grid">
+      <!-- Left: copy + bullets -->
+      <div class="reg-left">
+        <span class="eyebrow reveal">One more chance to join</span>
+        <h2 class="section-h reveal d1" id="reg-h">
+          Register Before<br>Your Spot Is Gone.
+        </h2>
+        <p class="reveal d2">
+          Bread made at home with the right method tastes completely different.
+          This masterclass is where it starts — and it won't cost you a cent.
+        </p>
+        <div class="reg-bullets reveal d3">
+          <div class="reg-bullet">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            No fancy equipment required
+          </div>
+          <div class="reg-bullet">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Perfect for complete beginners
+          </div>
+          <div class="reg-bullet">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Ask questions live in real time
+          </div>
+          <div class="reg-bullet">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Replay sent to all who register
+          </div>
+          <div class="reg-bullet">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Free sourdough starter PDF guide included
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: bread image + form -->
+      <div class="reveal d2">
+        <div class="reg-img-wrap" style="margin-bottom:36px;">
+          <div class="reg-bread-img">
+            <img src="loaf-closeup.png" alt="Perfectly baked artisan sourdough loaf" loading="lazy" />
+          </div>
+          <div class="reg-float-card">
+            <div class="rfc-title">This could be your bread.</div>
+            <div class="rfc-sub">After just one masterclass with Francisca.</div>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-cta btn-cta-lg" onclick="openModal()" style="width:100%;" aria-label="Reserve your free seat">
+          YES! SAVE MY FREE SEAT →
+        </button>
+        <p style="font-size:12px;color:#aaa098;text-align:center;margin-top:12px;">
+          100% free · Secure · Unsubscribe anytime
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     11 · FINAL CTA
+═══════════════════════════════════════════════════════ -->
+<section id="final-cta" aria-labelledby="fca-h">
+  <div class="fca-bg" aria-hidden="true"></div>
+  <div class="fca-inner">
+    <span class="eyebrow reveal" style="text-align:center;display:block;">Real Bread. Real Time. Real Connection.</span>
+    <h2 class="fca-h reveal d1" id="fca-h">
+      Let's Bake Something<br><em>Beautiful</em> Together.
+    </h2>
+    <p class="fca-sub reveal d2">
+      Join us on July 1 and discover why bread made at home —
+      with the right method — tastes like nothing you've ever bought.
+    </p>
+    <div class="fca-actions reveal d3">
+      <a href="#" class="btn btn-cta btn-cta-lg" onclick="openModal();return false;" aria-label="Save your free seat now">
+        SAVE MY FREE SEAT NOW
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <div class="fca-lock">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        100% free · July 1, 8 PM Lisbon · Only 47 spots remaining
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════
+     12 · FOOTER
+═══════════════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-row">
+    <div class="footer-brand">
+      <img src="Logo/logo%20white.jpeg" alt="Pão da Mãe" class="footer-logo" />
+      <span class="footer-tagline">Francisca Fonseca ♡</span>
+    </div>
+    <div class="footer-links" aria-label="Footer navigation">
+      <a href="https://www.instagram.com/paodamaee/" rel="noopener noreferrer">@paodamaee</a>
+      <a href="https://paodamae.com" rel="noopener noreferrer">paodamae.com</a>
+    </div>
+    <div class="footer-copy">
+      <p>© 2026 Pão da Mãe · Creator of the Pão da Mãe Method</p>
+      <p style="margin-top:3px;font-size:11px;opacity:.7;">Real Bread. Real Time. Real Connection.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════
+     STICKY MOBILE BAR
+═══════════════════════════════════════════════════════ -->
+<div id="sticky-bar" aria-label="Register for free masterclass">
+  <div class="sticky-inner">
+    <div class="sticky-info">
+      <div class="sticky-date">July 1 · 8 PM · Free</div>
+      <div class="sticky-free">Only 47 seats left</div>
+    </div>
+    <button class="sticky-btn" onclick="openModal()" aria-label="Register now">
+      REGISTER FREE →
+    </button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     REGISTRATION MODAL
+═══════════════════════════════════════════════════════ -->
+<div id="reg-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-backdrop" onclick="closeModal()"></div>
+  <div class="modal-box">
+    <div class="modal-header">
+      <div class="modal-header-left">
+        <span class="modal-eyebrow">Free Live Masterclass · July 1 · 8 PM Lisbon</span>
+        <span class="modal-title" id="modal-title">Reserve Your Free Seat</span>
+      </div>
+      <button class="modal-close" onclick="closeModal()" aria-label="Close registration form">×</button>
+    </div>
+    <div class="modal-subheader">
+      <span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        100% Free
+      </span>
+      <span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        Live on Zoom &amp; Instagram
+      </span>
+      <span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        47 spots left
+      </span>
+    </div>
+    <div class="modal-body">
+      <iframe
+        src="https://api.leadconnectorhq.com/widget/form/RwAcy8GPWkcGru0Gact6"
+        id="RwAcy8GPWkcGru0Gact6"
+        scrolling="no"
+        title="Pão da Mãe — Free Masterclass Registration"
+      ></iframe>
+      <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+    </div>
+    <div class="modal-trust">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Your information is 100% safe and will never be shared.
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     SCRIPTS
+═══════════════════════════════════════════════════════ -->
+<script>
+(function () {
+  'use strict';
+
+  var RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ── Parallax hero ─────────────────────────────── */
+  if (!RM) {
+    var heroBg = document.getElementById('hero-bg');
+    var ticking = false;
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        requestAnimationFrame(function () {
+          var sy = window.scrollY;
+          if (sy < window.innerHeight * 1.5) {
+            heroBg.style.transform = 'translateY(' + (sy * 0.25) + 'px)';
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+
+  /* ── Reveal on scroll ──────────────────────────── */
+  if (!RM) {
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.10, rootMargin: '0px 0px -32px 0px' });
+    document.querySelectorAll('.reveal').forEach(function (el) { obs.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
+  }
+
+  /* ── Countdown ─────────────────────────────────── */
+  // July 1 2026 20:00 Lisbon (UTC+1, WEST)
+  var TARGET = new Date('2026-07-01T20:00:00+01:00').getTime();
+
+  function pad(n) { return String(n).padStart(2, '0'); }
+
+  function tick() {
+    var diff = Math.max(0, TARGET - Date.now());
+    var s = Math.floor(diff / 1000);
+    var d = Math.floor(s / 86400);
+    var h = Math.floor((s % 86400) / 3600);
+    var m = Math.floor((s % 3600) / 60);
+    var sec = s % 60;
+
+    // Mini card countdown
+    var mcdD = document.getElementById('mcd-d');
+    var mcdH = document.getElementById('mcd-h');
+    var mcdM = document.getElementById('mcd-m');
+    var mcdS = document.getElementById('mcd-s');
+    if (mcdD) mcdD.textContent = pad(d);
+    if (mcdH) mcdH.textContent = pad(h);
+    if (mcdM) mcdM.textContent = pad(m);
+    if (mcdS) mcdS.textContent = pad(sec);
+
+    // Schedule countdown
+    var cdD = document.getElementById('cd-d');
+    var cdH = document.getElementById('cd-h');
+    var cdM = document.getElementById('cd-m');
+    var cdS = document.getElementById('cd-s');
+    if (cdD) cdD.textContent = pad(d);
+    if (cdH) cdH.textContent = pad(h);
+    if (cdM) cdM.textContent = pad(m);
+    if (cdS) cdS.textContent = pad(sec);
+  }
+
+  tick();
+  setInterval(tick, 1000);
+
+  /* ── Modal ─────────────────────────────────────── */
+  var modal = document.getElementById('reg-modal');
+
+  window.openModal = function () {
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    setTimeout(function () {
+      var closeBtn = modal.querySelector('.modal-close');
+      if (closeBtn) closeBtn.focus();
+    }, 100);
+  };
+
+  window.closeModal = function () {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+  });
+
+})();
+</script>
+</body>
+</html>
